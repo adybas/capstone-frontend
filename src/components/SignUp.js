@@ -37,9 +37,14 @@ export class SignUp extends Component {
     }
 }
 
-const mapStateToProps = (state) => ({
-    
-})
+const mapStateToProps = (state) => {
+    console.log("what is this",state)
+    // return {
+    //     painting: state.users.find(
+    //       painting => painting.id === ownProps.match.params.paintingId
+    //     )
+    //   }
+}
 
 const mapDispatchToProps = {
     

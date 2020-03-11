@@ -4,7 +4,7 @@ import './App.css'
 import { Navbar } from './components/Navbar'
 import { Footer } from './components/Footer'
 import { Home } from './components/Home'
-import { SignUp } from './components/SignUp';
+
 
 function App() {
   return (
@@ -12,7 +12,6 @@ function App() {
       < Navbar />
       <Switch>
         {/* < Route Home /> */}
-        <Route exact path="/signup" component={SignUp} />
         < Route path="/" component={Home} />
       </Switch>
       < Footer />

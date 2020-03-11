@@ -1,11 +1,14 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
+import home from '../home.png'
 
 export class Home extends Component {
     render() {
         return (
             <div>
                 "I'm Home"
+
+                
             </div>
         )
     }
