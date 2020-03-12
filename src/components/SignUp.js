@@ -27,10 +27,10 @@ const SignUp = props => {
     return (
         <div>
             Sign up Form
-            {/* <form onSubmit={(event) => this.handleSubmit(event)}> */}
+            <form onSubmit={(event) => this.handleSubmit(event)}>
                 <input name="user" value={props.value} onChange={(event) => props.onChange(event.target.value)}></input>
                 <button>Sign Up</button>
-            {/* </form> */}
+            </form>
             
         </div>
     )
@@ -43,7 +43,6 @@ const mapStateToProps = state => {
 }
 
 const mapDispatchToProps = dispatch => {
-    debugger
     return {
         onChange: (user) => dispatch(login(user))
     }
