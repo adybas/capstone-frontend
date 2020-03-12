@@ -1,41 +1,32 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import { login } from '../redux/actions'
+import { signingUp } from '../redux/actions'
 
-const SignUp = props => {
-    console.log("propppps", props)
-    // constructor(){
-    //     super()
-    //     this.state = {
-    //         user: ""
-    //     }
-    // }
 
-    // handleSubmit(event){
-    //     event.preventDefault()
-    //     fetch("http://localhost:3000/users", {
-    //         method: "POST",
-    //         headers: {
-    //             "Content-Type" : "application/json",
-    //             "Accept" : "application/json"
-    //         },
-    //         body: JSON.stringify({user: this.state.user})
-    //     }).then(res => res.json())
-    //     // event.target.value.remove()
-    // }
+class SignUp extends React.Component {
 
-    return (
-        <div>
-            Sign up Form
-            <form onSubmit={(event) => this.handleSubmit(event)}>
-                <input name="user" value={props.value} onChange={(event) => props.onChange(event.target.value)}></input>
-                <button>Sign Up</button>
-            </form>
-            
-        </div>
-    )
+    state = {
+        name: ""
+    }
+
+    handleSubmit = (event) => {
+        event.preventDefault()
+        this.props.onSubmit(this.state.name)
+    }
+
+    render() {
+        return (
+            <div>
+                Sign up Form
+                <form onSubmit={(event) => {this.handleSubmit(event)}}>
+                    <input name="user" value={this.state.name} onChange={event => this.setState({ name: event.target.value })}></input>
+                    <button>Sign Up</button>
+                </form>
+                
+            </div>
+        )
+    }
 }
-
 
 const mapStateToProps = state => { 
     console.log("tgf", state)
@@ -44,7 +35,7 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
     return {
-        onChange: (user) => dispatch(login(user))
+        onSubmit: (user) => dispatch(signingUp(user))
     }
 }
 
