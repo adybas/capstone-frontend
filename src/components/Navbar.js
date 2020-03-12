@@ -1,29 +1,19 @@
-import React, { Component } from 'react'
-import { Route, Switch } from "react-router-dom"
+import React from 'react'
+import { Route, Switch, NavLink, withRouter} from "react-router-dom"
 import { connect } from 'react-redux'
-import { SignUp } from './SignUp'
+import SignUp from './SignUp'
 import { Login } from './Login'
 
-export class Navbar extends Component {
-    render() {
-        return (
-            <div>
-                I'm a NAVBAR
-                <Switch>
-                    <Route exact path="/signup" component={SignUp} />
-                    <Route exact path="/login" component={Login} />
-                </Switch>
-            </div>
-        )
-    }
+const Navbar = () => {
+    return (
+        <div>
+            I'm a NAVBAR
+            <Switch>
+                <NavLink exact to="/signup"activeClassName="active item" className="item">SignUp</NavLink>
+                <NavLink exact to="/login" activeClassName="active item" className="item">Login</NavLink>
+            </Switch>
+        </div>
+    )  
 }
 
-const mapStateToProps = (state) => ({
-    
-})
-
-const mapDispatchToProps = {
-    
-}
-
-export default connect(mapStateToProps, mapDispatchToProps)(Navbar)
+export default withRouter(Navbar);

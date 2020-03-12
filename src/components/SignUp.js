@@ -1,53 +1,52 @@
-import React, { Component } from 'react'
+import React from 'react'
 import { connect } from 'react-redux'
+import { login } from '../redux/actions'
 
-export class SignUp extends Component {
-    constructor(){
-        super()
-        this.state = {
-            user: ""
-        }
-    }
+const SignUp = props => {
+    console.log("propppps", props)
+    // constructor(){
+    //     super()
+    //     this.state = {
+    //         user: ""
+    //     }
+    // }
 
-    handleSubmit(event){
-        event.preventDefault()
-        fetch("http://localhost:3000/users", {
-            method: "POST",
-            headers: {
-                "Content-Type" : "application/json",
-                "Accept" : "application/json"
-            },
-            body: JSON.stringify({user: this.state.user})
-        }).then(res => res.json())
-        .then(user => console.log(user))
-        // event.target.value.remove()
-    }
+    // handleSubmit(event){
+    //     event.preventDefault()
+    //     fetch("http://localhost:3000/users", {
+    //         method: "POST",
+    //         headers: {
+    //             "Content-Type" : "application/json",
+    //             "Accept" : "application/json"
+    //         },
+    //         body: JSON.stringify({user: this.state.user})
+    //     }).then(res => res.json())
+    //     // event.target.value.remove()
+    // }
 
-    render() {
-        return (
-            <div>
-                Sign up Form
-                <form onSubmit={(event) => this.handleSubmit(event)}>
-                    <input name="user" value={this.state.user} onChange={(event) => this.setState({ user: event.target.value })}></input>
-                    <button>Sign Up</button>
-                </form>
-                
-            </div>
-        )
-    }
+    return (
+        <div>
+            Sign up Form
+            {/* <form onSubmit={(event) => this.handleSubmit(event)}> */}
+                <input name="user" value={props.value} onChange={(event) => props.onChange(event.target.value)}></input>
+                <button>Sign Up</button>
+            {/* </form> */}
+            
+        </div>
+    )
 }
 
-const mapStateToProps = (state) => {
-    console.log("what is this",state)
-    // return {
-    //     painting: state.users.find(
-    //       painting => painting.id === ownProps.match.params.paintingId
-    //     )
-    //   }
+
+const mapStateToProps = state => { 
+    console.log("tgf", state)
+    return { value: state.login}
 }
 
-const mapDispatchToProps = {
-    
+const mapDispatchToProps = dispatch => {
+    debugger
+    return {
+        onChange: (user) => dispatch(login(user))
+    }
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(SignUp)
