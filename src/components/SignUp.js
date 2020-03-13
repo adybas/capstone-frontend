@@ -6,12 +6,23 @@ import { signingUp } from '../redux/actions'
 class SignUp extends React.Component {
 
     state = {
-        name: ""
+        form: {
+            first_name: "",
+            last_name: "",
+            username: "",
+            password: ""
+        }
     }
 
     handleSubmit = (event) => {
         event.preventDefault()
-        this.props.onSubmit(this.state.name)
+        this.props.onSubmit(this.state.form)
+    }
+
+    handleChange = (event) => {
+        let newFormState = {...this.state.form}
+        newFormState[event.target.name] = event.target.value
+        this.setState({ form: newFormState }) 
     }
 
     render() {
@@ -19,7 +30,21 @@ class SignUp extends React.Component {
             <div>
                 Sign up Form
                 <form onSubmit={(event) => {this.handleSubmit(event)}}>
-                    <input name="user" value={this.state.name} onChange={event => this.setState({ name: event.target.value })}></input>
+                    <input name="first_name"
+                    placeholder="First Name" 
+                    onChange={this.handleChange}></input>
+                    
+                    <input name="last_name" 
+                    placeholder="Last Name"
+                    onChange={this.handleChange}></input>
+                   
+                    <input name="username"
+                    placeholder="Username" 
+                    onChange={this.handleChange}></input>
+                   
+                    <input name="password"
+                    placeholder="Password" 
+                    onChange={this.handleChange}></input>
                     <button>Sign Up</button>
                 </form>
                 
