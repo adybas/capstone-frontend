@@ -13,17 +13,17 @@ class SignUp extends React.Component {
             password: ""
         }
     }
-
-    handleSubmit = (event) => {
-        event.preventDefault()
-        this.props.onSubmit(this.state.form)
-    }
-
+    
     handleChange = (event) => {
         let newFormState = {...this.state.form}
         newFormState[event.target.name] = event.target.value
         this.setState({ form: newFormState }) 
     }
+
+    handleSubmit = (event) => {
+        event.preventDefault()
+        this.props.onSubmit(this.state.form)
+    }    
 
     render() {
         return (
@@ -54,7 +54,6 @@ class SignUp extends React.Component {
 }
 
 const mapStateToProps = state => { 
-    console.log("tgf", state)
     return { value: state.login}
 }
 

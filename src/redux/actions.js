@@ -1,5 +1,4 @@
   function signingUp({first_name, last_name, username, password}){
-    debugger
     // const {first_name, last_name, username, password} = form
     return (dispatch) => {
       fetch("http://localhost:3000/users", {
@@ -17,7 +16,7 @@
   }
   
   function login(user){
-    return { type: 'LOGIN', payload: user  } 
+    return { type: 'LOGIN', payload: user  } //fetch to find user in DB
   }
 
   export {login, signingUp}

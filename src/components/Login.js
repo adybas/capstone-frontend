@@ -2,17 +2,25 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import { login } from '../redux/actions'
 
-//should login if user acct exists
 
 class Login extends Component {
 
   state = {
-      name: ""
+      form: {
+        username: "",
+        password: ""
+      }
+  }
+
+  handleChange = (event) => {
+      let newStateForm = {...this.state.form}
+      newStateForm[event.target.name] = event.target.value
+      this.setState({ form: newStateForm })
   }
 
   handleSubmit = (event) => {
       event.preventDefault()
-      this.props.onSubmit(this.state.name)
+      this.props.onSubmit(this.state.form)
   }
 
   render() {
@@ -20,8 +28,15 @@ class Login extends Component {
           <div>
               Login-In Here!
               <form onSubmit={(event) => {this.handleSubmit(event)}}>
-                  <input name="user" value={this.state.name} onChange={event => this.setState({ name: event.target.value })}></input>
-                  <button>Sign Up</button>
+                    <input name="username"
+                    placeholder="Username" 
+                    onChange={this.handleChange}></input>
+
+                    <input name="password"
+                    placeholder="Password" 
+                    onChange={this.handleChange}></input>
+
+                  <button>Login</button>
               </form>
           </div>
       )
