@@ -1,6 +1,6 @@
-  function signingUp(form){
+  function signingUp({first_name, last_name, username, password}){
     debugger
-    const {first_name, last_name, username, password} = form
+    // const {first_name, last_name, username, password} = form
     return (dispatch) => {
       fetch("http://localhost:3000/users", {
         method: "POST",
