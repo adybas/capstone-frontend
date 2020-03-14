@@ -1,14 +1,28 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import home from '../home.png'
+import { Route, Switch } from "react-router-dom";
+import { Login } from './Login'
+import { Ingredients } from './Ingredients'
 
 export class Home extends Component {
     render() {
         return (
             <div>
-                "I'm Home"
-
-                
+                <Switch>
+                    <Route
+                        path="/login"
+                        component={Login}
+                    />
+                    <Route
+                        path="/ingredients"
+                        render={() => (
+                            <div className="ui narrow container segment">
+                                <Searchbar />
+                                <Ingredients />
+                            </div>
+                        )}
+                    />
+                </Switch>
             </div>
         )
     }

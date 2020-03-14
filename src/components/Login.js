@@ -1,15 +1,17 @@
 import React, { Component } from "react";
+import { Link, Redirect } from 'react-router-dom'
 import { connect } from "react-redux";
-import { login } from '../redux/actions'
+import { loggingIn } from '../redux/actions'
 
 
-class Login extends Component {
+export class Login extends Component {
 
   state = {
       form: {
         username: "",
         password: ""
-      }
+      }, 
+      redirected: false
   }
 
   handleChange = (event) => {
@@ -21,9 +23,13 @@ class Login extends Component {
   handleSubmit = (event) => {
       event.preventDefault()
       this.props.onSubmit(this.state.form)
+      this.setState({redirected: true})
   }
 
   render() {
+      if (this.state.redirected){
+          return <Redirect to="/"/>
+      }
       return (
           <div>
               Login-In Here!
@@ -50,7 +56,7 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
   return {
-      onSubmit: (user) => dispatch(login(user))
+      onSubmit: (user) => dispatch(loggingIn(user))
   }
 }
 

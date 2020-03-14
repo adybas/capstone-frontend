@@ -1,7 +1,13 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
+import { fetchingIngredients } from '../redux/actions'
 
 export class Ingredients extends Component {
+  
+    componentDidMount() {
+        this.props.fetchingIngredients()
+    }
+
     render() {
         return (
             <div>
@@ -12,15 +18,13 @@ export class Ingredients extends Component {
     }
 }
 
-const mapStateToProps = (state) => ({
-    
-})
+const mapDispatchToProps = (dispatch) => {
+    return {
+      fetchingIngredients: () => { dispatch( fetchingIngredients() )}
+    }
+  }
 
-const mapDispatchToProps = {
-    
-}
-
-export default connect(mapStateToProps, mapDispatchToProps)(Ingredients)
+export default connect(null, mapDispatchToProps)(Ingredients)
 
 // Click on the ingredients you have? or Input them?
 // if click, render the ingredients onto the page. maybe provide the user with 
