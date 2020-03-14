@@ -2,7 +2,7 @@ import React from "react";
 import { connect } from "react-redux";
 import { changeSearchText } from "../redux/actions";
 
-const Searchbar = props => (
+export const Searchbar = props => (
   <div className="">
     <div className="">
       <input

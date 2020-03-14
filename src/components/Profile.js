@@ -11,9 +11,9 @@ export class Profile extends Component {
     }
 }
 
-const mapStateToProps = (state) => ({
+const mapStateToProps = (state) => {
     
-})
+}
 
 const mapDispatchToProps = {
     

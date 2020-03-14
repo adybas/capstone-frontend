@@ -3,6 +3,7 @@ import { connect } from 'react-redux'
 import { Route, Switch } from "react-router-dom";
 import { Login } from './Login'
 import { Ingredients } from './Ingredients'
+import { Searchbar } from './Searchbar'
 
 export class Home extends Component {
     render() {
@@ -28,9 +29,9 @@ export class Home extends Component {
     }
 }
 
-const mapStateToProps = (state) => ({
+const mapStateToProps = (state) => {
     
-})
+}
 
 const mapDispatchToProps = {
     

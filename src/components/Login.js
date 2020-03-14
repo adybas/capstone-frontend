@@ -28,7 +28,7 @@ export class Login extends Component {
 
   render() {
       if (this.state.redirected){
-          return <Redirect to="/"/>
+          return <Redirect to="/home"/>
       }
       return (
           <div>
@@ -50,7 +50,7 @@ export class Login extends Component {
 }
 
 const mapStateToProps = state => { 
-  console.log("tgf", state)
+  console.log("I'm in the Login Component", state)
   return { value: state.login}
 }
 
