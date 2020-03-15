@@ -1,5 +1,4 @@
 import React, { Component } from 'react'
-import {Route} from 'react-router-dom'
 import IngredientList from './IngredientList'
 import Searchbar from './Searchbar'
 
@@ -8,15 +7,10 @@ class IngredientsContainer extends Component {
     render() {
         return (
             <div>
-                <Route
-                    path="/"
-                    render={() => (
-                    <div className="">
-                        <Searchbar />
-                        <IngredientList />
-                    </div>
-                    )}
-                />
+                <div className="">
+                    <Searchbar />
+                    <IngredientList />
+                </div>
             </div>
         )
     }
