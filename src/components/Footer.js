@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 
-export class Footer extends Component {
+class Footer extends Component {
     render() {
         return (
             <div>

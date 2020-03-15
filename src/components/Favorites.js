@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 
-export class Favorites extends Component {
+class Favorites extends Component {
     render() {
         return (
             <div>

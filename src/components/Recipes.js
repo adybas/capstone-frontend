@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 
-export class Recipes extends Component {
+class Recipes extends Component {
     render() {
         return (
             <div>

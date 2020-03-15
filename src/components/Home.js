@@ -1,9 +1,9 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { Route, Switch } from "react-router-dom";
-import { Login } from './Login'
-import { Ingredients } from './Ingredients'
-import { Searchbar } from './Searchbar'
+import  Login  from './Login'
+import IngredientsContainer from './IngredientsContainer'
+import  Searchbar  from './Searchbar'
 
 export class Home extends Component {
     render() {
@@ -17,9 +17,9 @@ export class Home extends Component {
                     <Route
                         path="/ingredients"
                         render={() => (
-                            <div className="ui narrow container segment">
+                            <div className="">
                                 <Searchbar />
-                                <Ingredients />
+                                <IngredientsContainer />
                             </div>
                         )}
                     />
@@ -37,5 +37,4 @@ const mapDispatchToProps = {
     
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)( Home
-)
+export default connect(mapStateToProps, mapDispatchToProps)(Home)

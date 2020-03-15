@@ -4,7 +4,7 @@ import { connect } from "react-redux";
 import { loggingIn } from '../redux/actions'
 
 
-export class Login extends Component {
+class Login extends Component {
 
   state = {
       form: {
@@ -44,6 +44,7 @@ export class Login extends Component {
 
                   <button>Login</button>
               </form>
+                {/* Link to SignUp Here */}
           </div>
       )
   }

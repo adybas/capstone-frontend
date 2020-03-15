@@ -15,7 +15,6 @@ const searchTextReducer = (state = initialState.searchText, action) => {
 };
 
 const ingredientsReducer = (state = initialState.ingredients, action) => {
-  debugger
   switch (action.type) {
     case "FETCHED_INGREDIENTS":
       return action.payload
