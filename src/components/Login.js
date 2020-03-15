@@ -1,45 +1,64 @@
 import React, { Component } from "react";
+import { Link, Redirect } from 'react-router-dom'
 import { connect } from "react-redux";
-import { login } from '../redux/actions'
+import { loggingIn } from '../redux/actions'
 
-//should login if user acct exists
 
-export const Login = props => {
-    console.log("gdg", props)
+class Login extends Component {
 
-  // handleSubmit(event) {
-  //   event.preventDefault();
-  //   fetch("http://localhost:3000/users", {
-  //     method: "POST",
-  //     headers: {
-  //       "Content-Type": "application/json",
-  //       Accept: "application/json"
-  //     },
-  //     body: JSON.stringify({ user: this.state.user })
-  //   })
-  //     .then(res => res.json())
-  //     .then(user => console.log(user));
-  //   // event.target.value.remove()
-  // }
+  state = {
+      form: {
+        username: "",
+        password: ""
+      }, 
+      redirected: false
+  }
 
-    return (
-      <div>
-        Login
-        <form onSubmit={event => this.handleSubmit(event)}>
-          <input
-            type="text"
-            name="user"
-            value={props.value}
-            onChange={event => props.onChange(event.target.value)}
-          ></input>
-          <button>Login</button>
-        </form>
-      </div>
-    );
+  handleChange = (event) => {
+      let newStateForm = {...this.state.form}
+      newStateForm[event.target.name] = event.target.value
+      this.setState({ form: newStateForm })
+  }
+
+  handleSubmit = (event) => {
+      event.preventDefault()
+      this.props.onSubmit(this.state.form)
+      this.setState({redirected: true})
+  }
+
+  render() {
+      if (this.state.redirected){
+          return <Redirect to="/home"/>
+      }
+      return (
+          <div>
+              Login-In Here!
+              <form onSubmit={(event) => {this.handleSubmit(event)}}>
+                    <input name="username"
+                    placeholder="Username" 
+                    onChange={this.handleChange}></input>
+
+                    <input name="password"
+                    placeholder="Password" 
+                    onChange={this.handleChange}></input>
+
+                  <button>Login</button>
+              </form>
+                {/* Link to SignUp Here */}
+          </div>
+      )
+  }
 }
 
-const mapStateToProps = state => { return { value: state.login}}
+const mapStateToProps = state => { 
+  console.log("I'm in the Login Component", state)
+  return { value: state.login}
+}
 
-const mapDispatchToProps = dispatch => {return {onChange: (user) => dispatch(login(user))}}
+const mapDispatchToProps = dispatch => {
+  return {
+      onSubmit: (user) => dispatch(loggingIn(user))
+  }
+}
 
-export default connect(mapStateToProps, mapDispatchToProps)(Login);
+export default connect(mapStateToProps, mapDispatchToProps)(Login)

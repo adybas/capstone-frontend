@@ -1,4 +1,5 @@
-  function signingUp(user){
+  function signingUp({first_name, last_name, username, password}){
+    // const {first_name, last_name, username, password} = form
     return (dispatch) => {
       fetch("http://localhost:3000/users", {
         method: "POST",
@@ -6,7 +7,23 @@
             "Content-Type" : "application/json",
             "Accept" : "application/json"
         },
-        body: JSON.stringify({user: user})
+        body: JSON.stringify({first_name, last_name, username, password})
+        }).then(res => res.json())
+          .then(user => {
+            dispatch(login(user))
+        })
+    }
+  }
+
+  function loggingIn(){ //fetch to find user in DB
+    return (dispatch) => {
+      fetch("http://localhost:3000/users", {
+        method: "POST",
+        headers: {
+            "Content-Type" : "application/json",
+            "Accept" : "application/json"
+        },
+        body: JSON.stringify({})
         }).then(res => res.json())
           .then(user => {
             dispatch(login(user))
@@ -18,5 +35,24 @@
     return { type: 'LOGIN', payload: user  } 
   }
 
-  export {login, signingUp}
+  function fetchedIngredients(ingredients) {
+    return {type: "FETCHED_INGREDIENTS", payload: ingredients}
+  }
+  
+  function fetchingIngredients() {
+    return (dispatch) => {
+      fetch("http://localhost:3000/ingredients")
+      .then(res => res.json())
+      .then(ingredients => {
+        dispatch(fetchedIngredients(ingredients))
+      })
+    }
+  }
+
+  function changeSearchText(value) {
+    return { type: "CHANGE_SEARCH_TEXT", payload: value };
+  }
+  
+
+  export {login, signingUp, loggingIn, fetchingIngredients, changeSearchText}
   

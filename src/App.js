@@ -1,21 +1,33 @@
 import React from 'react';
-import { Route, Switch } from "react-router-dom";
+import { Route } from "react-router-dom";
 import './App.css'
 import Navbar from './components/Navbar'
-import { Footer } from './components/Footer'
-import { Home } from './components/Home'
+import Footer from './components/Footer'
+import Home from './components/Home'
+import { connect } from 'react-redux'
+import { fetchingIngredients } from './redux/actions'
 
 
-function App() {
-  return (
-    <div className="App">
-      < Navbar />
-      <Switch>
+class App extends React.Component {
+  componentDidMount(){
+    this.props.fetchingIngredients()
+  }
+
+  render(){
+    return (
+      <div className="App">
+        < Navbar />
         < Route path="/" component={Home} />
-      </Switch>
-      < Footer />
-    </div>
-  );
+        < Footer />
+      </div>
+    )
+  }
 }
 
-export default App;
+const mapDispatchToProps = (dispatch) => {
+  return {
+    fetchingIngredients: () => { dispatch( fetchingIngredients() )}
+  }
+}
+
+export default connect(null, mapDispatchToProps)(App)

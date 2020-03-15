@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 
-export class RecipesContainer extends Component {
+class RecipesContainer extends Component {
     render() {
         return (
             <div>
@@ -11,9 +11,9 @@ export class RecipesContainer extends Component {
     }
 }
 
-const mapStateToProps = (state) => ({
+const mapStateToProps = (state) => {
     
-})
+}
 
 const mapDispatchToProps = {
     
