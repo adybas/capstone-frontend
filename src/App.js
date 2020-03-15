@@ -4,16 +4,30 @@ import './App.css'
 import Navbar from './components/Navbar'
 import Footer from './components/Footer'
 import Home from './components/Home'
+import { connect } from 'react-redux'
+import { fetchingIngredients } from './redux/actions'
 
 
-function App() {
-  return (
-    <div className="App">
-      < Navbar />
-      < Route path="/" component={Home} />
-      < Footer />
-    </div>
-  );
+class App extends React.Component {
+  componentDidMount(){
+    this.props.fetchingIngredients()
+  }
+
+  render(){
+    return (
+      <div className="App">
+        < Navbar />
+        < Route path="/" component={Home} />
+        < Footer />
+      </div>
+    )
+  }
 }
 
-export default App;
+const mapDispatchToProps = (dispatch) => {
+  return {
+    fetchingIngredients: () => { dispatch( fetchingIngredients() )}
+  }
+}
+
+export default connect(null, mapDispatchToProps)(App)

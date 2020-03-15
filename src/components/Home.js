@@ -1,9 +1,8 @@
 import React, { Component } from 'react'
-import { connect } from 'react-redux'
 import { Route, Switch } from "react-router-dom";
 import  Login  from './Login'
 import IngredientsContainer from './IngredientsContainer'
-import  Searchbar  from './Searchbar'
+
 
 export class Home extends Component {
     render() {
@@ -18,7 +17,6 @@ export class Home extends Component {
                         path="/ingredients"
                         render={() => (
                             <div className="">
-                                <Searchbar />
                                 <IngredientsContainer />
                             </div>
                         )}
@@ -29,12 +27,5 @@ export class Home extends Component {
     }
 }
 
-const mapStateToProps = (state) => {
-    
-}
 
-const mapDispatchToProps = {
-    
-}
-
-export default connect(mapStateToProps, mapDispatchToProps)(Home)
+export default Home

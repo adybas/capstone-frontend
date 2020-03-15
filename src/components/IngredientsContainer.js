@@ -1,30 +1,28 @@
 import React, { Component } from 'react'
-import { connect } from 'react-redux'
-import { fetchingIngredients } from '../redux/actions'
+import {Route} from 'react-router-dom'
+import IngredientList from './IngredientList'
+import Searchbar from './Searchbar'
 
 class IngredientsContainer extends Component {
-  
-    componentDidMount() {
-        this.props.fetchingIngredients()
-    }
 
     render() {
-        // debugger
         return (
             <div>
-                
+                <Route
+                    path="/"
+                    render={() => (
+                    <div className="">
+                        <Searchbar />
+                        <IngredientList />
+                    </div>
+                    )}
+                />
             </div>
         )
     }
 }
 
-const mapDispatchToProps = (dispatch) => {
-    return {
-      fetchingIngredients: () => { dispatch( fetchingIngredients() )}
-    }
-  }
-
-export default connect(null, mapDispatchToProps)(IngredientsContainer)
+export default IngredientsContainer
 
 // Click on the ingredients you have? or Input them?
 // if click, render the ingredients onto the page. maybe provide the user with 
