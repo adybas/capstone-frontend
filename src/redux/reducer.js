@@ -2,7 +2,9 @@ import {combineReducers} from "redux"
 
 let initialState = {
   searchText: "",
-  ingredients: []
+  ingredients: [],
+  selectedIngredients: [],
+  currentUser: null
 }
 
 const searchTextReducer = (state = initialState.searchText, action) => {
@@ -23,8 +25,17 @@ const ingredientsReducer = (state = initialState.ingredients, action) => {
   }
 }
 
+const selectedIngredientsReducer = (state = initialState.selectedIngredients, action) => {
+  switch (action.type) {
+    case "SELECTED_INGREDIENTS":
+      return action.payload
+    default:
+      return state
+  }
+}
 
-function currentUserReducer(state = null, action){
+
+function currentUserReducer(state = initialState.currentUser, action){
   switch (action.type) {
     case "LOGIN":
       return action.payload
@@ -36,7 +47,8 @@ function currentUserReducer(state = null, action){
 const rootReducer = combineReducers({
   value: currentUserReducer,
   ingredients: ingredientsReducer,
-  searchText: searchTextReducer
+  searchText: searchTextReducer,
+  selectedIngredients: selectedIngredientsReducer
 })
 
 export default rootReducer

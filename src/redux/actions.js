@@ -52,7 +52,11 @@
   function changeSearchText(value) {
     return { type: "CHANGE_SEARCH_TEXT", payload: value };
   }
+
+  function userSelectedIngredients(value) {
+    return { type: "SELECTED_INGREDIENTS", payload: value };
+  }
   
 
-  export {login, signingUp, loggingIn, fetchingIngredients, changeSearchText}
+  export {login, signingUp, loggingIn, fetchingIngredients, changeSearchText, userSelectedIngredients}
   

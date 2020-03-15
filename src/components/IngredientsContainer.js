@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import IngredientList from './IngredientList'
 import Searchbar from './Searchbar'
+import {userSelectedIngredients} from '../redux/actions'
 
 class IngredientsContainer extends Component {
 
@@ -9,6 +10,7 @@ class IngredientsContainer extends Component {
             <div>
                 <div className="">
                     <Searchbar />
+                    "Select Up to 6 Ingredients You would like to cook with today!"
                     <IngredientList />
                 </div>
             </div>
