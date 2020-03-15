@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { connect } from 'react-redux'
+
 
 class Footer extends Component {
     render() {
@@ -11,12 +11,4 @@ class Footer extends Component {
     }
 }
 
-const mapStateToProps = (state) => {
-    
-}
-
-const mapDispatchToProps = {
-    
-}
-
-export default connect(mapStateToProps, mapDispatchToProps)(Footer)
+export default Footer
