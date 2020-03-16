@@ -8,12 +8,14 @@ const Navbar = () => {
     return (
         <div>
             I'm a NAVBAR
-            <Switch>
-            < Route exact path="/signup" component={SignUp} />
-            < Route exact path="/login" component={Login} />
-                {/* <NavLink exact to="/signup"activeClassName="active item" className="item">SignUp</NavLink>
-                <NavLink exact to="/login" activeClassName="active item" className="item">Login</NavLink> */}
-            </Switch>
+            <Route>
+            {/* <NavLink to="/about">About</NavLink> */}
+            < NavLink to="/home" activeClassName="active-item" className="item" > Home </NavLink>
+            < NavLink to="/ingredients" activeClassName="active-item" className="item" > Search with Ingredients </NavLink>
+            < NavLink to="/signup" activeClassName="active-item" className="item" > Sign Up </NavLink>
+            < NavLink to="/login" activeClassName="active-item" className="item" > Login </NavLink>
+                
+            </Route>
         </div>
     )  
 }

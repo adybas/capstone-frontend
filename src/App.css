@@ -5,3 +5,14 @@ body {
   background: url(./home.png) no-repeat center/cover fixed;
   color: white
 }
+
+.item{
+  color: white;
+  text-decoration: none;
+}
+
+.active-item{
+  font-weight: bold;
+  color: red;
+  text-decoration: none;
+}
