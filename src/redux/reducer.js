@@ -28,11 +28,13 @@ const ingredientsReducer = (state = initialState.ingredients, action) => {
 const selectedIngredientsReducer = (state = initialState.selectedIngredients, action) => {
   switch (action.type) {
     case "SELECTED_INGREDIENTS":
-      return action.payload
+      return [...state, action.payload]
     default:
       return state
   }
 }
+
+
 
 
 function currentUserReducer(state = initialState.currentUser, action){
