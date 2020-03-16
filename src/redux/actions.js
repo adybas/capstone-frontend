@@ -7,7 +7,7 @@
             "Content-Type" : "application/json",
             "Accept" : "application/json"
         },
-        body: JSON.stringify({first_name, last_name, username, password})
+        body: JSON.stringify({first_name, last_name, username})
         }).then(res => res.json())
           .then(user => {
             dispatch(login(user))
@@ -15,17 +15,18 @@
     }
   }
 
-  function loggingIn(){ //fetch to find user in DB
+  function loggingIn({username, password}){ //fetch to find user in DB
     return (dispatch) => {
-      fetch("http://localhost:3000/users", {
+      fetch("http://localhost:3000/login", {
         method: "POST",
         headers: {
             "Content-Type" : "application/json",
             "Accept" : "application/json"
         },
-        body: JSON.stringify({})
+        body: JSON.stringify({username})
         }).then(res => res.json())
           .then(user => {
+            // console.log("inside loggin in action/redux", user)
             dispatch(login(user))
         })
     }

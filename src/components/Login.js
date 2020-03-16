@@ -27,9 +27,9 @@ class Login extends Component {
   }
 
   render() {
-    console.log("inside the login",this.props)
+    // console.log("inside the login",this.props)
       if (this.state.redirected){
-          return <Redirect to="/home"/>
+          return <Redirect to="/home"/> // redirect to user profile!!
       }
       return (
           <div>
@@ -53,7 +53,7 @@ class Login extends Component {
 }
 
 const mapStateToProps = state => { 
-  console.log("I'm in the Login Component", state)
+//   console.log("I'm in the Login Component", state)
   return { currentUser: state.currentUser}
 }
 

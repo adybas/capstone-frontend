@@ -55,7 +55,7 @@ class SignUp extends React.Component {
 }
 
 const mapStateToProps = state => { 
-    console.log("confused about stuff",state)
+    console.log("I'm inside the signUp mapStatetoProps",state)
     return { currentUser: state.currentUser}
 }
 

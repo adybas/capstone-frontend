@@ -38,6 +38,7 @@ const selectedIngredientsReducer = (state = initialState.selectedIngredients, ac
 function currentUserReducer(state = initialState.currentUser, action){
   switch (action.type) {
     case "LOGIN":
+      console.log("inside loggin in reducer/redux", action.payload)
       return state = action.payload
     case "LOGOUT":
       return state = null
