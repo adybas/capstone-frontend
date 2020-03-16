@@ -1,8 +1,7 @@
 import React, { Component } from 'react'
 import IngredientList from './IngredientList'
 import Searchbar from './Searchbar'
-import {userSelectedIngredients} from '../redux/actions'
-
+// MAKE FUNCTIONAL IF STATELESS!!
 class IngredientsContainer extends Component {
 
     render() {

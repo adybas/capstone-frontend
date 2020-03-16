@@ -58,11 +58,14 @@
     return { type: "SELECTED_INGREDIENTS", payload: value };
   }
 
-  function fetchingUserSelectedIngredients(value) {
-    return { type: "FETCHED_SELECTED_INGREDIENTS", payload: value };
+  function fetchingUserSelectedIngredients(ingredientsString) { // take array, turn into string, and send it to api
+    console.log(ingredientsString)
+  }
 
+  function fetchedUserRecipes(recipes){
+    return { type: "FETCHED_SELECTED_RECIPES", payload: recipes };
   }
   
 
-  export {signingUp, loggingIn, fetchingIngredients, changeSearchText, userSelectedIngredients}
+  export {signingUp, loggingIn, fetchingIngredients, changeSearchText, userSelectedIngredients, fetchingUserSelectedIngredients}
   
