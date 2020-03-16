@@ -19,8 +19,8 @@ const Searchbar = props => (
 const mapStateToProps = state => {
   return {
     value: state.searchText
-  };
-};
+  }
+}
 
 const mapDispatchToProps = dispatch => {
   return {
@@ -28,4 +28,4 @@ const mapDispatchToProps = dispatch => {
   }
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(Searchbar);
+export default connect(mapStateToProps, mapDispatchToProps)(Searchbar)

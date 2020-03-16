@@ -58,10 +58,10 @@
   }
 
   function fetchingUserSelectedIngredients(value) {
-    return { type: "SELECTED_INGREDIENTS", payload: value };
-    
+    return { type: "FETCHED_SELECTED_INGREDIENTS", payload: value };
+
   }
   
 
-  export {login, signingUp, loggingIn, fetchingIngredients, changeSearchText, userSelectedIngredients}
+  export {signingUp, loggingIn, fetchingIngredients, changeSearchText, userSelectedIngredients}
   

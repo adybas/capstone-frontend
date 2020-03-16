@@ -26,6 +26,7 @@ class SignUp extends React.Component {
     }    
 
     render() {
+        console.log("inside the signup",this.props)
         return (
             <div>
                 Sign up Form
@@ -43,18 +44,19 @@ class SignUp extends React.Component {
                     onChange={this.handleChange}></input>
                    
                     <input name="password"
+                    type="password"
                     placeholder="Password" 
                     onChange={this.handleChange}></input>
                     <button>Sign Up</button>
-                </form>
-                
+                </form>   
             </div>
         )
     }
 }
 
 const mapStateToProps = state => { 
-    return { value: state.login}
+    console.log("confused about stuff",state)
+    return { currentUser: state.currentUser}
 }
 
 const mapDispatchToProps = dispatch => {

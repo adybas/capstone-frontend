@@ -35,19 +35,19 @@ const selectedIngredientsReducer = (state = initialState.selectedIngredients, ac
 }
 
 
-
-
 function currentUserReducer(state = initialState.currentUser, action){
   switch (action.type) {
     case "LOGIN":
-      return action.payload
+      return state = action.payload
+    case "LOGOUT":
+      return state = null
     default:
       return state
   }
 }
 
 const rootReducer = combineReducers({
-  value: currentUserReducer,
+  currentUser: currentUserReducer,
   ingredients: ingredientsReducer,
   searchText: searchTextReducer,
   selectedIngredients: selectedIngredientsReducer
