@@ -1,23 +1,37 @@
 import React, { Component } from 'react'
 import IngredientList from './IngredientList'
 import Searchbar from './Searchbar'
-// MAKE FUNCTIONAL IF STATELESS!!
+import {connect} from 'react-redux'
+import { Redirect } from 'react-router-dom'
+
+
+// component will unmount to change redirect to false!! (and leave as class)
 class IngredientsContainer extends Component {
 
     render() {
         return (
             <div>
-                <div className="">
+                {this.props.redirect? 
+                < Redirect to="/recipes"/> // change redirect to recipes
+                :<div className="">
                     <Searchbar />
                     "Select Up to 6 Ingredients You would like to cook with today!"
                     <IngredientList />
-                </div>
+                </div> }
             </div>
         )
     }
 }
 
-export default IngredientsContainer
+const mapStateToProps = (state) => {
+    return {
+        redirect: state.redirect
+    }
+}
+
+
+export default connect(mapStateToProps)(IngredientsContainer)
+// export default IngredientsContainer
 
 // Click on the ingredients you have? or Input them?
 // if click, render the ingredients onto the page. maybe provide the user with 
@@ -26,3 +40,5 @@ export default IngredientsContainer
 // maybe if the result is 0, we can jsut display a random recipe?
 // from here, go to the recipes container to display the recipes
 // form their, allow them to click on one recipe to view full recipe
+
+

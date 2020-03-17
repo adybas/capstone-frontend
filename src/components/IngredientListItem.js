@@ -11,7 +11,6 @@ class IngredientListItem extends React.Component {
     }
 
     render(){
-        // console.log("Inside IngListItem", this.props)
         return (
             <div className="content">
                 <button onClick={this.handleClick}>{this.props.ingredient.name}</button>

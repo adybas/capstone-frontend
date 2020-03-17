@@ -2,22 +2,24 @@ import React from 'react'
 import { connect } from 'react-redux'
 import IngredientListItem from './IngredientListItem'
 import {fetchingUserSelectedIngredients} from '../redux/actions'
+// class, local state of redirect
+class IngredientList extends React.Component {
 
-const IngredientList = props => {
+    render(){
 
-    const handleSearch = () => {
-        let ingredientsString = props.selectedIngredients.join(",").replace(/ /g, "-")
-        console.log(ingredientsString)
-        props.onSearchSubmit(ingredientsString)
+        const handleSearch = () => {
+            let ingredientsString = this.props.selectedIngredients.join(",").replace(/ /g, "-")
+            this.props.onSearchSubmit(ingredientsString)
+        }
+
+        return (
+            <div>
+                <h4>Current Selection: {this.props.selectedIngredients} </h4>
+                <button onClick={handleSearch}>SEARCH RECIPES WITH SELECTION</button>
+                {this.props.ingredients.map(ing => <IngredientListItem ingredient={ing} key={ing.id}/>)}
+            </div>
+        )
     }
-
-    return (
-        <div>
-            <h4>Current Selection: {props.selectedIngredients} </h4>
-            <button onClick={handleSearch}>SEARCH RECIPES WITH SELECTION</button>
-            {props.ingredients.map(ing => <IngredientListItem ingredient={ing} key={ing.id}/>)}
-        </div>
-    )
 }
 
 const mapStateToProps = (state) => {

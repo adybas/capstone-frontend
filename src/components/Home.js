@@ -1,7 +1,9 @@
 import React, { Component } from 'react'
 import { Route, Switch } from "react-router-dom";
 import  Login  from './Login'
+import SignUp from './SignUp'
 import IngredientsContainer from './IngredientsContainer'
+import RecipesContainer from './RecipesContainer'
 
 
 export class Home extends Component {
@@ -9,6 +11,10 @@ export class Home extends Component {
         return (
             <div>
                 <Switch>
+                    <Route
+                        path="/signup"
+                        component={SignUp}
+                    />
                     <Route
                         path="/login"
                         component={Login}
@@ -18,6 +24,14 @@ export class Home extends Component {
                         render={() => (
                             <div className="">
                                 <IngredientsContainer />
+                            </div>
+                        )}
+                    />
+                    <Route
+                        path="/recipes"
+                        render={() => (
+                            <div className="">
+                                <RecipesContainer />
                             </div>
                         )}
                     />
