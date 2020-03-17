@@ -7,7 +7,6 @@ const IngredientList = props => {
 
     const handleSearch = () => {
         let ingredientsString = props.selectedIngredients.join(",").replace(/ /g, "-")
-        console.log(ingredientsString)
         props.onSearchSubmit(ingredientsString)
     }
 

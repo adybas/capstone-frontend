@@ -11,7 +11,7 @@ export class Home extends Component {
         return (
             <div>
                 <Switch>
-                <Route
+                    <Route
                         path="/signup"
                         component={SignUp}
                     />
@@ -27,7 +27,7 @@ export class Home extends Component {
                             </div>
                         )}
                     />
-                       <Route
+                    <Route
                         path="/recipes"
                         render={() => (
                             <div className="">

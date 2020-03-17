@@ -1,10 +1,13 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import { Card, Image, Icon, Popup, List } from 'semantic-ui-react'
+import RecipeIngredients from './RecipeIngredients'
 
 const Recipes = (props) => {
     // missedIngredients & usedIngredients are objects
     let {id, title, image, usedIngredientCount, missedIngredientCount, missedIngredients, usedIngredients} = props.recipe
+    console.log(missedIngredients)
+    console.log(usedIngredients)
     return (
         <Card>
             <Popup
@@ -21,14 +24,7 @@ const Recipes = (props) => {
             </Card.Meta>
             <Card.Description>
                 <List>
-                    {missedIngredients.forEach(ing => 
-                        //  debugger
-                        <List.Item>
-                        <Image avatar src={`${ing.originalString}`} />
-                        <List.Content>
-                            <List.Header as='a'>{ing.name}</List.Header>
-                        </List.Content>
-                    </List.Item> )}
+                    {missedIngredients.map(ing => <RecipeIngredients ingredient={ing} key={ing}/>)}
                 </List>
             </Card.Description>
             </Card.Content>
@@ -37,7 +33,9 @@ const Recipes = (props) => {
 }
 
 const mapStateToProps = (state) => {
-    
+    return {
+        redirect: state.redirect
+    }
 }
 
 const mapDispatchToProps = {
