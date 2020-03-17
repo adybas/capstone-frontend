@@ -37,10 +37,9 @@ const selectedIngredientsReducer = (state = initialState.selectedIngredients, ac
 }
 
 const fetchedIngredientRecipesReducer = (state = initialState.userIngredientRecipes, action) => {
-  console.log("I'm inside the reducer for ingrecipes", state, action.payload)
   switch (action.type) {
     case "FETCHED_SELECTED_RECIPES":
-      return [...state, action.payload]
+      return [...state, action.payload].flat()
     default:
       return state
   }
@@ -59,7 +58,6 @@ const redirectReducer = (state = initialState.redirect, action) => {
 function currentUserReducer(state = initialState.currentUser, action){
   switch (action.type) {
     case "LOGIN":
-      console.log("inside loggin in reducer/redux", action.payload)
       return state = action.payload
     case "LOGOUT":
       return state = null

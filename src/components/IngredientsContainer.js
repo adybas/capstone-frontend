@@ -3,15 +3,16 @@ import IngredientList from './IngredientList'
 import Searchbar from './Searchbar'
 import {connect} from 'react-redux'
 import { Redirect } from 'react-router-dom'
+
 // MAKE FUNCTIONAL IF STATELESS!!
-// component will unmount to change redirect to false!!
+// component will unmount to change redirect to false!! (and leave as class)
 class IngredientsContainer extends Component {
 
     render() {
         return (
             <div>
                 {this.props.redirect? 
-                < Redirect to="/login"/> 
+                < Redirect to="/recipes"/> // change redirect to recipes
                 :<div className="">
                     <Searchbar />
                     "Select Up to 6 Ingredients You would like to cook with today!"
