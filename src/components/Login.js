@@ -27,8 +27,9 @@ class Login extends Component {
   }
 
   render() {
+    // console.log("inside the login",this.props)
       if (this.state.redirected){
-          return <Redirect to="/home"/>
+          return <Redirect to="/home"/> // redirect to user profile!!
       }
       return (
           <div>
@@ -39,6 +40,7 @@ class Login extends Component {
                     onChange={this.handleChange}></input>
 
                     <input name="password"
+                    type="password"
                     placeholder="Password" 
                     onChange={this.handleChange}></input>
 
@@ -51,8 +53,8 @@ class Login extends Component {
 }
 
 const mapStateToProps = state => { 
-  console.log("I'm in the Login Component", state)
-  return { value: state.login}
+//   console.log("I'm in the Login Component", state)
+  return { currentUser: state.currentUser}
 }
 
 const mapDispatchToProps = dispatch => {

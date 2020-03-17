@@ -2,7 +2,10 @@ import {combineReducers} from "redux"
 
 let initialState = {
   searchText: "",
-  ingredients: []
+  ingredients: [],
+  selectedIngredients: [],
+  currentUser: null,
+  userIngredientRecipes: []
 }
 
 const searchTextReducer = (state = initialState.searchText, action) => {
@@ -23,20 +26,44 @@ const ingredientsReducer = (state = initialState.ingredients, action) => {
   }
 }
 
+const selectedIngredientsReducer = (state = initialState.selectedIngredients, action) => {
+  switch (action.type) {
+    case "SELECTED_INGREDIENTS":
+      return [...state, action.payload]
+    default:
+      return state
+  }
+}
 
-function currentUserReducer(state = null, action){
+const fetchedIngredientRecipesReducer = (state = initialState.userIngredientRecipes, action) => {
+  console.log("I'm inside the reducer for ingrecipes", state, action.payload)
+  switch (action.type) {
+    case "FETCHED_SELECTED_RECIPES":
+      return [...state, action.payload]
+    default:
+      return state
+  }
+}
+
+
+function currentUserReducer(state = initialState.currentUser, action){
   switch (action.type) {
     case "LOGIN":
-      return action.payload
+      console.log("inside loggin in reducer/redux", action.payload)
+      return state = action.payload
+    case "LOGOUT":
+      return state = null
     default:
       return state
   }
 }
 
 const rootReducer = combineReducers({
-  value: currentUserReducer,
+  currentUser: currentUserReducer,
   ingredients: ingredientsReducer,
-  searchText: searchTextReducer
+  searchText: searchTextReducer,
+  selectedIngredients: selectedIngredientsReducer,
+  userIngredientRecipes: fetchedIngredientRecipesReducer
 })
 
 export default rootReducer

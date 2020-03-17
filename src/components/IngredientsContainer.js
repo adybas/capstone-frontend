@@ -1,22 +1,17 @@
 import React, { Component } from 'react'
-import {Route} from 'react-router-dom'
 import IngredientList from './IngredientList'
 import Searchbar from './Searchbar'
-
+// MAKE FUNCTIONAL IF STATELESS!!
 class IngredientsContainer extends Component {
 
     render() {
         return (
             <div>
-                <Route
-                    path="/"
-                    render={() => (
-                    <div className="">
-                        <Searchbar />
-                        <IngredientList />
-                    </div>
-                    )}
-                />
+                <div className="">
+                    <Searchbar />
+                    "Select Up to 6 Ingredients You would like to cook with today!"
+                    <IngredientList />
+                </div>
             </div>
         )
     }
