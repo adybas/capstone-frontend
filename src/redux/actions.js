@@ -58,12 +58,18 @@
     return { type: "SELECTED_INGREDIENTS", payload: value };
   }
 
-  function fetchingUserSelectedIngredients(ingredientsString) { // take array, turn into string, and send it to api
-    console.log(ingredientsString)
+  function fetchingUserSelectedIngredients(ingredientsString) {
+    return (dispatch) => {
+      fetch(`https://api.spoonacular.com/recipes/findByIngredients?ingredients=${ingredientsString}&number=2&limitLicense=false&ignorePantry=true&apiKey=${process.env.REACT_APP_APIKEY}`)
+      .then(res => res.json())
+      .then(ingredients => {
+        dispatch(fetchedUserRecipes(ingredients))
+      })
+    }
   }
 
   function fetchedUserRecipes(recipes){
-    return { type: "FETCHED_SELECTED_RECIPES", payload: recipes };
+    return { type: "FETCHED_SELECTED_RECIPES", payload: recipes }
   }
   
 

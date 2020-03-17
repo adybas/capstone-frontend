@@ -6,16 +6,8 @@ import {fetchingUserSelectedIngredients} from '../redux/actions'
 const IngredientList = props => {
 
     const handleSearch = () => {
-        console.log("inside handle search")
-        console.log(props.selectedIngredients)
-        debugger
-        // 0: "amaretto"
-        // 1: "apple juice"
-        // 2: "ancho chiles"
-        // length: 3
-        // __proto__: Array(0)
-        // tomato,cheese
-        let ingredientsString
+        let ingredientsString = props.selectedIngredients.join(",").replace(/ /g, "-")
+        console.log(ingredientsString)
         props.onSearchSubmit(ingredientsString)
     }
 
@@ -44,4 +36,4 @@ const mapDispatchToProps = dispatch => {
     }
 }
   
-export default connect(mapStateToProps)(IngredientList);
+export default connect(mapStateToProps, mapDispatchToProps)(IngredientList);

@@ -4,7 +4,8 @@ let initialState = {
   searchText: "",
   ingredients: [],
   selectedIngredients: [],
-  currentUser: null
+  currentUser: null,
+  userIngredientRecipes: []
 }
 
 const searchTextReducer = (state = initialState.searchText, action) => {
@@ -34,6 +35,16 @@ const selectedIngredientsReducer = (state = initialState.selectedIngredients, ac
   }
 }
 
+const fetchedIngredientRecipesReducer = (state = initialState.userIngredientRecipes, action) => {
+  console.log("I'm inside the reducer for ingrecipes", state, action.payload)
+  switch (action.type) {
+    case "FETCHED_SELECTED_RECIPES":
+      return [...state, action.payload]
+    default:
+      return state
+  }
+}
+
 
 function currentUserReducer(state = initialState.currentUser, action){
   switch (action.type) {
@@ -51,7 +62,8 @@ const rootReducer = combineReducers({
   currentUser: currentUserReducer,
   ingredients: ingredientsReducer,
   searchText: searchTextReducer,
-  selectedIngredients: selectedIngredientsReducer
+  selectedIngredients: selectedIngredientsReducer,
+  userIngredientRecipes: fetchedIngredientRecipesReducer
 })
 
 export default rootReducer
