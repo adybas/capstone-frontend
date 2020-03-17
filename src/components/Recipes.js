@@ -17,16 +17,27 @@ const Recipes = (props) => {
             />
             <Image src={`${image}`} wrapped ui={false} />
             <Card.Content>
-            <Card.Header>{title}</Card.Header>
+                <Card.Header>{title}</Card.Header>
+            </Card.Content>
+
             <Card.Meta>
-                <span className='used-count'>Ingredients I Have: {usedIngredientCount}</span>
-                <span className='missed-count'>Ingredients I Need:{missedIngredientCount}</span>
+                <span>Uses {missedIngredientCount} new ingredients</span>
             </Card.Meta>
-            <Card.Description>
-                <List>
-                    {missedIngredients.map(ing => <RecipeIngredients ingredient={ing} key={ing}/>)}
-                </List>
-            </Card.Description>
+
+            <Card.Content>
+                <Card.Description>
+                <span className='used-count'>Ingredients I Have: {usedIngredientCount}</span>
+                    <List>
+                        {usedIngredients.map(ing => <RecipeIngredients ingredient={ing} key={ing.id}/>)}
+                    </List>
+                </Card.Description>
+
+                <Card.Description>
+                <span className='missed-count'>Ingredients I Need: {missedIngredientCount}</span>
+                    <List>
+                        {missedIngredients.map(ing => <RecipeIngredients ingredient={ing} key={ing.id}/>)}
+                    </List>
+                </Card.Description>
             </Card.Content>
         </Card>
     )
