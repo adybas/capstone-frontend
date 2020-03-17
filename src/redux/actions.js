@@ -71,7 +71,10 @@
   function fetchedUserRecipes(recipes){
     return { type: "FETCHED_SELECTED_RECIPES", payload: recipes }
   }
-  
 
-  export {signingUp, loggingIn, fetchingIngredients, changeSearchText, userSelectedIngredients, fetchingUserSelectedIngredients}
+  function resetRedirect(){
+    return { type: "RESET_REDIRECT"}
+  }
+
+  export {signingUp, loggingIn, fetchingIngredients, changeSearchText, userSelectedIngredients, fetchingUserSelectedIngredients, resetRedirect}
   

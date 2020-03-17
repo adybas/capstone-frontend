@@ -4,7 +4,7 @@ import Searchbar from './Searchbar'
 import {connect} from 'react-redux'
 import { Redirect } from 'react-router-dom'
 
-// MAKE FUNCTIONAL IF STATELESS!!
+
 // component will unmount to change redirect to false!! (and leave as class)
 class IngredientsContainer extends Component {
 
@@ -31,6 +31,7 @@ const mapStateToProps = (state) => {
 
 
 export default connect(mapStateToProps)(IngredientsContainer)
+// export default IngredientsContainer
 
 // Click on the ingredients you have? or Input them?
 // if click, render the ingredients onto the page. maybe provide the user with 

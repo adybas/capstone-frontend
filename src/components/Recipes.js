@@ -33,9 +33,9 @@ const Recipes = (props) => {
 }
 
 const mapStateToProps = (state) => {
-    return {
-        redirect: state.redirect
-    }
+    // return {
+    //     redirect: state.redirect
+    // }
 }
 
 const mapDispatchToProps = {

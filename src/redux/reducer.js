@@ -49,6 +49,8 @@ const redirectReducer = (state = initialState.redirect, action) => {
   switch (action.type) {
     case "FETCHED_SELECTED_RECIPES":
       return true
+    case "RESET_REDIRECT":
+      return false
     default:
       return state
   }
@@ -73,7 +75,6 @@ const rootReducer = combineReducers({
   selectedIngredients: selectedIngredientsReducer,
   userIngredientRecipes: fetchedIngredientRecipesReducer,
   redirect: redirectReducer
-
 })
 
 export default rootReducer
