@@ -1,3 +1,4 @@
+  // signing up for the first time
   function signingUp({first_name, last_name, username, password}){
     // const {first_name, last_name, username, password} = form
     return (dispatch) => {
@@ -15,6 +16,7 @@
     }
   }
 
+  //logging into the app again
   function loggingIn({username, password}){ //fetch to find user in DB
     return (dispatch) => {
       fetch("http://localhost:3000/login", {
@@ -40,6 +42,7 @@
     return {type: "FETCHED_INGREDIENTS", payload: ingredients}
   }
   
+  //fetching ingredients stored in db/seed
   function fetchingIngredients() {
     return (dispatch) => {
       fetch("http://localhost:3000/ingredients")
@@ -58,6 +61,7 @@
     return { type: "SELECTED_INGREDIENTS", payload: value };
   }
 
+  //fetching to API for 2 recipes
   function fetchingUserSelectedIngredients(ingredientsString) {
     return (dispatch) => {
       fetch(`https://api.spoonacular.com/recipes/findByIngredients?ingredients=${ingredientsString}&number=2&limitLicense=false&ignorePantry=true&apiKey=${process.env.REACT_APP_APIKEY}`)
@@ -76,5 +80,21 @@
     return { type: "RESET_REDIRECT"}
   }
 
-  export {signingUp, loggingIn, fetchingIngredients, changeSearchText, userSelectedIngredients, fetchingUserSelectedIngredients, resetRedirect}
+  // fetching from API the specific recipe
+  function fetchingUserClickedRecipe(id) {
+    return (dispatch) => {
+      fetch(`https://api.spoonacular.com/recipes/${id}/information?includeNutrition=false&apiKey=${process.env.REACT_APP_APIKEY}`)
+      .then(res => res.json())
+      .then(recipe => {
+        console.log(recipe)
+        dispatch(fetchedUserClickedRecipe(recipe))
+      })
+    }
+  }
+
+  function fetchedUserClickedRecipe(recipe){
+    return { type: "FETCHED_USER_CLICKED_RECIPE", payload: recipe }
+  }
+
+  export {signingUp, loggingIn, fetchingIngredients, changeSearchText, userSelectedIngredients, fetchingUserSelectedIngredients, resetRedirect, fetchingUserClickedRecipe}
   
