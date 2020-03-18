@@ -7,7 +7,8 @@ let initialState = {
   currentUser: null,
   userIngredientRecipes: [],
   redirect: false,
-  favoriteRecipes: []
+  favoriteRecipes: [],
+  clickedRecipe: []
 }
 
 const searchTextReducer = (state = initialState.searchText, action) => {
@@ -48,8 +49,10 @@ const fetchedIngredientRecipesReducer = (state = initialState.userIngredientReci
 
 const redirectReducer = (state = initialState.redirect, action) => {
   switch (action.type) {
-    case "FETCHED_SELECTED_RECIPES":
+    case "FETCHED_SELECTED_RECIPES":  
       return true
+    // case "FETCHED_USER_CLICKED_RECIPE":
+    //   return true
     case "RESET_REDIRECT":
       return false
     default:
@@ -80,6 +83,17 @@ function currentUserReducer(state = initialState.currentUser, action){
   }
 }
 
+const fetchedUserClickedRecipe = (state = initialState.clickedRecipe, action) => {
+  switch (action.type) {
+    case "FETCHED_USER_CLICKED_RECIPE":
+      // debugger
+      let newState = [...state, action.payload].flat()
+      return newState.filter(recipe => recipe.id === action.payload.id)
+    default:
+      return state
+  }
+}
+
 const rootReducer = combineReducers({
   currentUser: currentUserReducer,
   ingredients: ingredientsReducer,
@@ -87,7 +101,10 @@ const rootReducer = combineReducers({
   selectedIngredients: selectedIngredientsReducer,
   userIngredientRecipes: fetchedIngredientRecipesReducer,
   redirect: redirectReducer,
-  favoriteRecipes: favoriteRecipesReducer
+  favoriteRecipes: favoriteRecipesReducer,
+  clickedRecipe: fetchedUserClickedRecipe
 })
 
 export default rootReducer
+
+

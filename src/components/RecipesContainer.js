@@ -12,6 +12,7 @@ class RecipesContainer extends Component {
 
     render() {
         return (
+            
             <div>
                 <Card.Group itemsPerRow={2}>
                 {this.props.userIngredientRecipes.map(recipe => <Recipes recipe={recipe} key={recipe.id}/>)}

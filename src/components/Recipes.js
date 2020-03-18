@@ -1,15 +1,15 @@
 import React from 'react'
-import { connect } from 'react-redux'
 import { Card, Image, Icon, Popup, List } from 'semantic-ui-react'
 import RecipeIngredients from './RecipeIngredients'
+import { Link } from 'react-router-dom'
 
 const Recipes = (props) => {
     // missedIngredients & usedIngredients are objects
     let {id, title, image, usedIngredientCount, missedIngredientCount, missedIngredients, usedIngredients} = props.recipe
-    console.log(missedIngredients)
-    console.log(usedIngredients)
+
     return (
-        <Card>
+        <div>
+            <Card as={Link} to={`/recipes/${id}`}>
             <Popup
                 trigger={<Icon name='heart' color='red' size='large' circular />}
                 content='Add Me to Your Favorites'
@@ -39,18 +39,9 @@ const Recipes = (props) => {
                     </List>
                 </Card.Description>
             </Card.Content>
-        </Card>
+        </Card> 
+        </div>
     )
 }
 
-const mapStateToProps = (state) => {
-    // return {
-    //     redirect: state.redirect
-    // }
-}
-
-const mapDispatchToProps = {
-    
-}
-
-export default connect(mapStateToProps, mapDispatchToProps)(Recipes)
+export default Recipes
