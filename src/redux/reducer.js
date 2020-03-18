@@ -69,7 +69,7 @@ function currentUserReducer(state = initialState.currentUser, action){
   }
 }
 
-const fetchedIngredientRecipesReducer = (state = initialState.clickedRecipe, action) => {
+const fetchedUserClickedRecipe = (state = initialState.clickedRecipe, action) => {
   switch (action.type) {
     case "FETCHED_USER_CLICKED_RECIPE":
       return [...state, action.payload].flat()
@@ -84,7 +84,8 @@ const rootReducer = combineReducers({
   searchText: searchTextReducer,
   selectedIngredients: selectedIngredientsReducer,
   userIngredientRecipes: fetchedIngredientRecipesReducer,
-  redirect: redirectReducer
+  redirect: redirectReducer,
+  clickedRecipe: fetchedUserClickedRecipe
 })
 
 export default rootReducer
