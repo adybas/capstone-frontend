@@ -3,7 +3,6 @@ import { connect } from 'react-redux'
 import Recipes from './Recipes'
 import { Card } from 'semantic-ui-react'
 import {resetRedirect} from '../redux/actions'
-import { Switch } from 'react-router-dom'
 
 class RecipesContainer extends Component {
 

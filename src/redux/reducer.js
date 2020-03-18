@@ -50,8 +50,8 @@ const redirectReducer = (state = initialState.redirect, action) => {
   switch (action.type) {
     case "FETCHED_SELECTED_RECIPES":  
       return true
-    case "FETCHED_USER_CLICKED_RECIPE":
-      return true
+    // case "FETCHED_USER_CLICKED_RECIPE":
+    //   return true
     case "RESET_REDIRECT":
       return false
     default:
@@ -74,6 +74,7 @@ function currentUserReducer(state = initialState.currentUser, action){
 const fetchedUserClickedRecipe = (state = initialState.clickedRecipe, action) => {
   switch (action.type) {
     case "FETCHED_USER_CLICKED_RECIPE":
+      // debugger
       let newState = [...state, action.payload].flat()
       return newState.filter(recipe => recipe.id === action.payload.id)
     default:

@@ -30,9 +30,9 @@ export class Home extends Component {
                     />
                     <Route
                         exact path="/recipes/:id"
-                        render={() => (
+                        render={(props) => (
                             <div className="">
-                                <RecipeDetail />
+                                <RecipeDetail routeProps={props}/>
                             </div>
                         )}
                     />

@@ -1,23 +1,15 @@
 import React from 'react'
-import { connect } from 'react-redux'
 import { Card, Image, Icon, Popup, List } from 'semantic-ui-react'
 import RecipeIngredients from './RecipeIngredients'
-import { fetchingUserClickedRecipe } from '../redux/actions'
-import { Redirect } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 
 const Recipes = (props) => {
     // missedIngredients & usedIngredients are objects
     let {id, title, image, usedIngredientCount, missedIngredientCount, missedIngredients, usedIngredients} = props.recipe
 
-    const handleClick = () => {
-        props.onClick(id)
-    }
-
     return (
         <div>
-        {props.redirect? 
-        < Redirect to={`/recipes/${id}`}/> :
-            <Card onClick={handleClick}>
+            <Card as={Link} to={`/recipes/${id}`}>
             <Popup
                 trigger={<Icon name='heart' color='red' size='large' circular />}
                 content='Add Me to Your Favorites'
@@ -47,21 +39,9 @@ const Recipes = (props) => {
                     </List>
                 </Card.Description>
             </Card.Content>
-        </Card> }
+        </Card> 
         </div>
     )
 }
 
-const mapStateToProps = (state) => {
-    return {
-        redirect: state.redirect
-    }
-}
-
-const mapDispatchToProps = dispatch => {
-    return {
-        onClick: (recipe) => dispatch(fetchingUserClickedRecipe(recipe))
-    }
-}
-
-export default connect(mapStateToProps, mapDispatchToProps)(Recipes)
+export default Recipes
