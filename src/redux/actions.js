@@ -76,5 +76,24 @@
     return { type: "RESET_REDIRECT"}
   }
 
-  export {signingUp, loggingIn, fetchingIngredients, changeSearchText, userSelectedIngredients, fetchingUserSelectedIngredients, resetRedirect}
+  function fetchingUserRecipes(recipe) {
+    return (dispatch) => {
+      fetch(`https://api.spoonacular.com/recipes/findByIngredients?ingredients=${recipe}&number=2&limitLicense=false&ignorePantry=true&apiKey=${process.env.REACT_APP_APIKEY}`)
+      .then(res => res.json())
+      .then(recipe => {
+        console.log(recipe)
+        dispatch(favoriteUserRecipe(recipe))
+      })
+    }
+  }
+
+  function favoriteUserRecipe(recipe){
+    return { type: "FAVORITE_A_RECIPE", payload: recipe }
+  }
+
+  function unfavoriteUserRecipe(recipe){
+    return { type: "UNFAVORITE_A_RECIPE", payload: recipe }
+  }
+
+  export {signingUp, loggingIn, fetchingIngredients, changeSearchText, userSelectedIngredients, fetchingUserSelectedIngredients, resetRedirect, fetchingUserRecipes}
   
