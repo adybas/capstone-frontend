@@ -6,8 +6,11 @@ import RecipeIngredients from './RecipeIngredients'
 const Recipes = (props) => {
     // missedIngredients & usedIngredients are objects
     let {id, title, image, usedIngredientCount, missedIngredientCount, missedIngredients, usedIngredients} = props.recipe
-    console.log(missedIngredients)
-    console.log(usedIngredients)
+
+    const handleClick = () => {
+        this.props.onSelect(this.props.ingredient.name)
+    }
+
     return (
         <Card>
             <Popup
@@ -49,8 +52,10 @@ const mapStateToProps = (state) => {
     // }
 }
 
-const mapDispatchToProps = {
-    
+const mapDispatchToProps = dispatch => {
+    return {
+        onClick: (recipe) => dispatch((recipe))
+    }
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(Recipes)
+export default connect(null, mapDispatchToProps)(Recipes)

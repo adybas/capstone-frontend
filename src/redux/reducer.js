@@ -6,7 +6,8 @@ let initialState = {
   selectedIngredients: [],
   currentUser: null,
   userIngredientRecipes: [],
-  redirect: false
+  redirect: false,
+  clickedRecipe: []
 }
 
 const searchTextReducer = (state = initialState.searchText, action) => {
@@ -68,6 +69,15 @@ function currentUserReducer(state = initialState.currentUser, action){
   }
 }
 
+const fetchedIngredientRecipesReducer = (state = initialState.clickedRecipe, action) => {
+  switch (action.type) {
+    case "FETCHED_USER_CLICKED_RECIPE":
+      return [...state, action.payload].flat()
+    default:
+      return state
+  }
+}
+
 const rootReducer = combineReducers({
   currentUser: currentUserReducer,
   ingredients: ingredientsReducer,
@@ -78,3 +88,5 @@ const rootReducer = combineReducers({
 })
 
 export default rootReducer
+
+
