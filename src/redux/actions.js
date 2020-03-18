@@ -98,3 +98,5 @@
 
   export {signingUp, loggingIn, fetchingIngredients, changeSearchText, userSelectedIngredients, fetchingUserSelectedIngredients, resetRedirect, fetchingUserClickedRecipe}
   
+
+  //make a POST for favs

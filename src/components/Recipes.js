@@ -3,6 +3,7 @@ import { connect } from 'react-redux'
 import { Card, Image, Icon, Popup, List } from 'semantic-ui-react'
 import RecipeIngredients from './RecipeIngredients'
 import { fetchingUserClickedRecipe } from '../redux/actions'
+import { Redirect } from 'react-router-dom'
 
 const Recipes = (props) => {
     // missedIngredients & usedIngredients are objects
@@ -13,7 +14,10 @@ const Recipes = (props) => {
     }
 
     return (
-        <Card onClick={handleClick}>
+        <div>
+        {props.redirect? 
+        < Redirect to={`/recipes/${id}`}/> :
+            <Card onClick={handleClick}>
             <Popup
                 trigger={<Icon name='heart' color='red' size='large' circular />}
                 content='Add Me to Your Favorites'
@@ -43,14 +47,15 @@ const Recipes = (props) => {
                     </List>
                 </Card.Description>
             </Card.Content>
-        </Card>
+        </Card> }
+        </div>
     )
 }
 
 const mapStateToProps = (state) => {
-    // return {
-    //     redirect: state.redirect
-    // }
+    return {
+        redirect: state.redirect
+    }
 }
 
 const mapDispatchToProps = dispatch => {
@@ -59,4 +64,4 @@ const mapDispatchToProps = dispatch => {
     }
 }
 
-export default connect(null, mapDispatchToProps)(Recipes)
+export default connect(mapStateToProps, mapDispatchToProps)(Recipes)

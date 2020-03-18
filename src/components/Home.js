@@ -4,6 +4,7 @@ import  Login  from './Login'
 import SignUp from './SignUp'
 import IngredientsContainer from './IngredientsContainer'
 import RecipesContainer from './RecipesContainer'
+import RecipeDetail from './RecipeDetail'
 
 
 export class Home extends Component {
@@ -12,15 +13,15 @@ export class Home extends Component {
             <div>
                 <Switch>
                     <Route
-                        path="/signup"
+                        exact path="/signup"
                         component={SignUp}
                     />
                     <Route
-                        path="/login"
+                        exact path="/login"
                         component={Login}
                     />
                     <Route
-                        path="/ingredients"
+                        exact path="/ingredients"
                         render={() => (
                             <div className="">
                                 <IngredientsContainer />
@@ -28,7 +29,15 @@ export class Home extends Component {
                         )}
                     />
                     <Route
-                        path="/recipes"
+                        exact path="/recipes/:id"
+                        render={() => (
+                            <div className="">
+                                <RecipeDetail />
+                            </div>
+                        )}
+                    />
+                    <Route
+                        exact path="/recipes"
                         render={() => (
                             <div className="">
                                 <RecipesContainer />
@@ -36,6 +45,7 @@ export class Home extends Component {
                         )}
                     />
                 </Switch>
+                
             </div>
         )
     }
