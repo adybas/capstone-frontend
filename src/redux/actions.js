@@ -83,9 +83,7 @@ function resetRedirect() {
   return { type: "RESET_REDIRECT" };
 }
 
-function favoritingRecipe(recipe, user) {
-  console.log(recipe, user)
-  debugger
+function favoritingRecipe({vegetarian, vegan, glutenFree, dairyFree, weightWatcherSmartPoints, lowFodmap, preparationMinutes, cookingMinutes, sourceUrl, spoonacularSourceUrl, spoonacularScore, creditsText, sourceName, title, id, servings, readyInMinutes, image, summary, instructions}, user) {
   return (dispatch) => {
     fetch("http://localhost:3000/recipes", {
       method: "POST",
@@ -93,11 +91,11 @@ function favoritingRecipe(recipe, user) {
           "Content-Type" : "application/json",
           "Accept" : "application/json"
       },
-      body: JSON.stringify()
+      body: JSON.stringify({vegetarian, vegan, glutenFree, dairyFree, weightWatcherSmartPoints, lowFodmap, preparationMinutes, cookingMinutes, sourceUrl, spoonacularSourceUrl, spoonacularScore, creditsText, sourceName, title, db_id: id, servings, readyInMinutes, image, summary, instructions})
       }).then(res => res.json())
-      .then( recipe => {
-      let favorited = {recipe_id: recipe.id, user_id: user.id, favorite: true}
-      console.log(favorited)
+      .then( favRecipe => {
+        debugger
+      let favorited = {recipe_id: favRecipe.id, user_id: user.user.id, favorite: true}
           fetch("http://localhost:3000/user_recipes", {
             method: "POST",
             headers: {
@@ -152,3 +150,4 @@ export {
 };
 
 //make a POST for favs
+//vegetarian, vegan, glutenFree, dairyFree, weightWatcherSmartPoints, lowFodmap, preparationMinutes, cookingMinutes, sourceUrl, spoonacularSourceUrl, spoonacularScore, creditsText, sourceName, title, db_id, servings, readyInMinutes, image, summary, instructions
