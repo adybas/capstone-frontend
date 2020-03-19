@@ -5,12 +5,16 @@ import SignUp from './SignUp'
 import IngredientsContainer from './IngredientsContainer'
 import RecipesContainer from './RecipesContainer'
 import RecipeDetail from './RecipeDetail'
+import Navbar from './Navbar'
+import Footer from './Footer'
 
 
 export class Home extends Component {
     render() {
         return (
             <div>
+                < Navbar />
+
                 <Switch>
                     <Route
                         exact path="/signup"
@@ -44,8 +48,9 @@ export class Home extends Component {
                             </div>
                         )}
                     />
-                </Switch>
-                
+                </Switch> 
+                < Footer />
+
             </div>
         )
     }
