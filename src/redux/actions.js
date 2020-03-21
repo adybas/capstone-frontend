@@ -119,7 +119,6 @@ function fetchingUserClickedRecipe(id) {
     )
       .then(res => res.json())
       .then(recipe => {
-        console.log(recipe);
         dispatch(fetchedUserClickedRecipe(recipe));
       });
   };

@@ -15,7 +15,7 @@ class App extends React.Component {
   render(){
     return (
       <div className="App">
-        < Route path="/" component={Home} />
+        < Route  path="/" component={Home} />
       </div>
     )
   }

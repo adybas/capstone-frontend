@@ -1,6 +1,7 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import { signingUp } from '../redux/actions'
+import { Redirect } from 'react-router-dom'
 
 
 class SignUp extends React.Component {
@@ -11,7 +12,8 @@ class SignUp extends React.Component {
             last_name: "",
             username: "",
             password: ""
-        }
+        },
+        redirected: false
     }
     
     handleChange = (event) => {
@@ -23,10 +25,13 @@ class SignUp extends React.Component {
     handleSubmit = (event) => {
         event.preventDefault()
         this.props.onSubmit(this.state.form)
+        this.setState({ redirected: true }) 
     }    
 
     render() {
-        console.log("inside the signup",this.props)
+        if (this.state.redirected){
+            return <Redirect to="/home"/> // redirect to user profile!!
+        }
         return (
             <div>
                 Sign up Form
@@ -55,7 +60,6 @@ class SignUp extends React.Component {
 }
 
 const mapStateToProps = state => { 
-    console.log("I'm inside the signUp mapStatetoProps",state)
     return { currentUser: state.currentUser}
 }
 
