@@ -1,22 +1,16 @@
-import React, { Component } from 'react'
-import { connect } from 'react-redux'
+import React from 'react'
+import { Link } from 'react-router-dom'
 
-class Favorites extends Component {
-    render() {
-        return (
-            <div>
-                
-            </div>
-        )
-    }
+
+const Favorites = props => {
+    return (
+        <div>
+            <Link to={`/recipes/${props.recipe.db_id}`}>
+                <h1>{props.recipe.title}</h1>
+                <img src={`${props.recipe.image}`} alt={`${props.recipe.title}`} />
+            </Link>
+        </div>
+    )
 }
 
-const mapStateToProps = (state) => ({
-    
-})
-
-const mapDispatchToProps = {
-    
-}
-
-export default connect(mapStateToProps, mapDispatchToProps)(Favorites)
+export default Favorites

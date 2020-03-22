@@ -27,7 +27,6 @@ class Login extends Component {
   }
 
   render() {
-    // console.log("inside the login",this.props)
       if (this.state.redirected){
           return <Redirect to="/home"/> // redirect to user profile!!
       }
@@ -46,7 +45,9 @@ class Login extends Component {
 
                   <button>Login</button>
               </form>
-                {/* Link to SignUp Here */}
+              Not a Member? <Link to='/signup'>
+                        Sign up here
+                            </Link>
           </div>
       )
   }

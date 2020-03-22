@@ -1,5 +1,5 @@
 import React from 'react'
-import { Card, Image, Icon, Popup, List } from 'semantic-ui-react'
+import { Card, Image, Icon, List } from 'semantic-ui-react'
 import RecipeIngredients from './RecipeIngredients'
 import { Link } from 'react-router-dom'
 
@@ -10,11 +10,6 @@ const Recipes = (props) => {
     return (
         <div>
             <Card as={Link} to={`/recipes/${id}`}>
-            <Popup
-                trigger={<Icon name='heart' color='red' size='large' circular />}
-                content='Add Me to Your Favorites'
-                position='top left'
-            />
             <Image src={`${image}`} wrapped ui={false} />
             <Card.Content>
                 <Card.Header>{title}</Card.Header>

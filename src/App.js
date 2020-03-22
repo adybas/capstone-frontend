@@ -1,8 +1,7 @@
 import React from 'react';
 import { Route } from "react-router-dom";
 import './App.css'
-import Navbar from './components/Navbar'
-import Footer from './components/Footer'
+
 import Home from './components/Home'
 import { connect } from 'react-redux'
 import { fetchingIngredients } from './redux/actions'
@@ -16,9 +15,7 @@ class App extends React.Component {
   render(){
     return (
       <div className="App">
-        < Navbar />
-        < Route path="/" component={Home} />
-        < Footer />
+        < Route  path="/" component={Home} />
       </div>
     )
   }

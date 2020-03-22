@@ -5,7 +5,6 @@ import {connect} from 'react-redux'
 import { Redirect } from 'react-router-dom'
 
 
-// component will unmount to change redirect to false!! (and leave as class)
 class IngredientsContainer extends Component {
 
     render() {

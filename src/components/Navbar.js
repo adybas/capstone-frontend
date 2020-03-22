@@ -1,6 +1,5 @@
 import React from 'react'
-import { Route, NavLink, withRouter} from "react-router-dom"
-import { connect } from 'react-redux'
+import { Route, NavLink, withRouter} from 'react-router-dom'
 import SignUp from './SignUp'
 import  Login  from './Login'
 
