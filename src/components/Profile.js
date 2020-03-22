@@ -11,12 +11,12 @@ class Profile extends Component {
                 {this.props.currentUser.favorites.length > 0 ?
                 this.props.currentUser.favorites.map(recipe => <Favorites recipe={recipe} key={recipe.id} />)
                 : <p> Search for recipes and favorite them to see them here </p>}
-
-
             </div>
         )
     }
 }
+
+//this.props.currentUser.first_name
 
 const mapStateToProps = (state) => {
     return {
