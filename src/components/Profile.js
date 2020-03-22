@@ -4,7 +4,6 @@ import Favorites from './Favorites'
 
 class Profile extends Component {
     render() {
-        debugger
         return (
             <div>
                 <h1>Welcome {this.props.currentUser.user.first_name}!</h1>
@@ -15,8 +14,6 @@ class Profile extends Component {
         )
     }
 }
-
-//this.props.currentUser.first_name
 
 const mapStateToProps = (state) => {
     return {

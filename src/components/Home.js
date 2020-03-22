@@ -51,7 +51,7 @@ const Home = (props) => {
                     )}
                 />
             </Switch> 
-                {props.currentUser?
+                {props.currentUser ?
                     < Profile /> :
                     <> </>
                 }       
