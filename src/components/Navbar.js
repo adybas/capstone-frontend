@@ -1,20 +1,19 @@
 import React from 'react'
 import { Route, NavLink, withRouter} from 'react-router-dom'
-import SignUp from './SignUp'
-import  Login  from './Login'
+import { AiOutlineSearch, AiOutlineLogin, AiOutlineHome } from 'react-icons/ai';
 
-const Navbar = () => {
+
+const Navigation = () => {
     return (
-        <div>
-            I'm a NAVBAR
+        <div className="nav">
             <Route>
-                < NavLink to="/home" activeClassName="active-item" className="item" > Home </NavLink>
-                < NavLink to="/ingredients" activeClassName="active-item" className="item" > Search with Ingredients </NavLink>
-                < NavLink to="/signup" activeClassName="active-item" className="item" > Sign Up </NavLink>
-                < NavLink to="/login" activeClassName="active-item" className="item" > Login </NavLink>         
+                < NavLink to="/home" activeClassName="active-item" className="item" > <AiOutlineHome /> Home </NavLink>
+                < NavLink to="/ingredients" activeClassName="active-item" className="item" > <AiOutlineSearch /> Search with Ingredients </NavLink>
+                {/* < NavLink to="/signup" activeClassName="active-item" className="item" > Sign Up </NavLink> */}
+                < NavLink to="/login" activeClassName="active-item" className="item" > <AiOutlineLogin />Login </NavLink>         
             </Route>
         </div>
     )  
 }
 
-export default withRouter(Navbar);
+export default withRouter(Navigation);
