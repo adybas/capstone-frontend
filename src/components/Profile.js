@@ -1,22 +1,28 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
+import Favorites from './Favorites'
 
 class Profile extends Component {
     render() {
+        debugger
         return (
             <div>
-                user profile!!!!
+                <h1>Welcome {this.props.currentUser.user.first_name}!</h1>
+                {this.props.currentUser.favorites.length > 0 ?
+                this.props.currentUser.favorites.map(recipe => <Favorites recipe={recipe} key={recipe.id} />)
+                : <p> Search for recipes and favorite them to see them here </p>}
+
+
             </div>
         )
     }
 }
 
 const mapStateToProps = (state) => {
-    
+    return {
+        currentUser: state.currentUser
+    }
 }
 
-const mapDispatchToProps = {
-    
-}
 
-export default connect(mapStateToProps, mapDispatchToProps)(Profile)
+export default connect(mapStateToProps)(Profile)
