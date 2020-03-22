@@ -94,7 +94,6 @@ function favoritingRecipe({vegetarian, vegan, glutenFree, dairyFree, weightWatch
       body: JSON.stringify({vegetarian, vegan, glutenFree, dairyFree, weightWatcherSmartPoints, lowFodmap, preparationMinutes, cookingMinutes, sourceUrl, spoonacularSourceUrl, spoonacularScore, creditsText, sourceName, title, db_id: id, servings, readyInMinutes, image, summary, instructions})
       }).then(res => res.json())
       .then( favRecipe => {
-        debugger
       let favorited = {recipe_id: favRecipe.id, user_id: user.user.id, favorite: true}
           fetch("http://localhost:3000/user_recipes", {
             method: "POST",
