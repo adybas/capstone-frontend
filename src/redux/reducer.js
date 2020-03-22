@@ -7,8 +7,8 @@ let initialState = {
   currentUser: null,
   userIngredientRecipes: [],
   redirect: false,
-  favoriteRecipes: [],
-  clickedRecipe: []
+  favorites: [],
+  clickedRecipe: [],
 }
 
 const searchTextReducer = (state = initialState.searchText, action) => {
@@ -51,8 +51,6 @@ const redirectReducer = (state = initialState.redirect, action) => {
   switch (action.type) {
     case "FETCHED_SELECTED_RECIPES":  
       return true
-    // case "FETCHED_USER_CLICKED_RECIPE":
-    //   return true
     case "RESET_REDIRECT":
       return false
     default:
@@ -60,7 +58,7 @@ const redirectReducer = (state = initialState.redirect, action) => {
   }
 }
 
-const favoriteRecipesReducer = (state = initialState.favoriteRecipes, action) => {
+const favoriteRecipesReducer = (state = initialState.favorites, action) => {
   switch (action.type) {
     case "FAVORITE_A_RECIPE":
       return [...state, action.payload].flat()
@@ -71,10 +69,12 @@ const favoriteRecipesReducer = (state = initialState.favoriteRecipes, action) =>
   }
 }
 
-
+//= initialState.currentUser
 function currentUserReducer(state = initialState.currentUser, action){
   switch (action.type) {
     case "LOGIN":
+      // let newState = {...state, currentUser: {...state.currentUser, user: action.payload}}
+      // return newState.currentUser
       return state = action.payload
     case "LOGOUT":
       return state = null
