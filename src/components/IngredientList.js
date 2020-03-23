@@ -12,10 +12,17 @@ class IngredientList extends React.Component {
             this.props.onSearchSubmit(ingredientsString)
         }
 
+        //clear current selection
+        // const handleClearSelection = () => {
+        //     debugger
+        //     this.props.selectedIngredients
+        // }
+
         return (
             <div>
                 <h4>Current Selection: {this.props.selectedIngredients} </h4>
                 <button onClick={handleSearch}>SEARCH RECIPES WITH SELECTION</button>
+                {/* <button onClick={handleClearSelection}>Clear the Current Ingredient Selection</button> */}
                 {this.props.ingredients.map(ing => <IngredientListItem ingredient={ing} key={ing.id}/>)}
             </div>
         )

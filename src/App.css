@@ -1,9 +1,12 @@
-body {
+@import url('https://fonts.googleapis.com/css?family=Montserrat&display=swap');
+
+html, body {
   /* padding-top: 75px; */
   padding-bottom: 55px;
   height: 100%;
   background: url(./home.png) no-repeat center/cover fixed;
-  color: white
+  color: white;
+  font-family: 'Montserrat', sans-serif;
 }
 
 .nav{
@@ -25,4 +28,57 @@ body {
   font-weight: bold;
   color: rgb(255, 153, 0);
   text-decoration: none;
+}
+
+.form-group{
+  width: fit-content;
+  color: black;
+  margin: 50px;
+  background-color: aliceblue;
+}
+
+input[type=text], input[type=password] {
+  width: 100%;
+  padding: 15px;
+  margin: 5px 0 22px 0;
+  border: none;
+  background: #f1f1f1;
+}
+
+input[type=text]:focus, input[type=password]:focus {
+  background-color: #ddd;
+  outline: none;
+}
+
+.form-card{
+  /* width: 30vw; */
+}
+
+.text-center{
+  text-align: center;
+}
+
+.container {
+  text-decoration: none;
+  color: black;
+}
+
+.ing-list{
+  display: inline;
+}
+
+.img-container {
+  position: relative;
+  overflow: hidden;
+}
+
+.text-block {
+  opacity: .8;
+  position: absolute;
+  bottom: 20px;
+  right: 20px;
+  background-color: black;
+  color:white;
+  padding-left: 20px;
+  padding-right: 20px;
 }

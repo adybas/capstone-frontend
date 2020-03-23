@@ -32,46 +32,45 @@ class SignUp extends React.Component {
       return <Redirect to="/home" />; // redirect to user profile!!
     }
     return (
-      <div>
+      <div className="form-group">
         <Card.Body>
-          <Card.Title as="h3" className="text-center">
-            Create Your Account
+          <Card.Title as="h2" className="text-center">
+            Sign Up
           </Card.Title>
-          <Form>
+          <Form onSubmit={this.handleSubmit}>
             <Form.Group controlId="firstName">
               <Form.Label>First Name</Form.Label>
-              <input
-                className=""
+              <Form.Control
                 type="text"
                 name="first_name"
                 placeholder="First Name"
                 onChange={this.handleChange}
               />
-            </Form.Group>
+            {/* </Form.Group> */}
 
-            <Form.Group controlId="lastName">
+            {/* <Form.Group controlId="lastName"> */}
               <Form.Label>Last Name</Form.Label>
-              <input
-                className=""
+              <Form.Control
+                type="text"
                 name="last_name"
                 placeholder="Last Name"
                 onChange={this.handleChange}
               />
-            </Form.Group>
+            {/* </Form.Group> */}
 
-            <Form.Group controlId="username">
+            {/* <Form.Group controlId="username"> */}
               <Form.Label>Username</Form.Label>
-              <input
-                className=""
+              <Form.Control
+                type="text"
                 name="username"
                 placeholder="Username"
                 onChange={this.handleChange}
               />
-            </Form.Group>
+            {/* </Form.Group> */}
 
-            <Form.Group controlId="password">
+            {/* <Form.Group controlId="password"> */}
               <Form.Label>Password</Form.Label>
-              <input
+              <Form.Control
                 name="password"
                 className=""
                 type="password"
@@ -86,7 +85,6 @@ class SignUp extends React.Component {
                 size="lg"
                 block
                 type="submit"
-                onClick={this.handleSubmit}
               >
                 Submit
               </Button>

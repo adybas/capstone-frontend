@@ -31,8 +31,12 @@ class Login extends Component {
     }
     return (
       <div className="form-group">
-        <Card className="form-card">
+        <Card.Body>
+        <Card.Title as="h2" className="text-center">
+          Sign In
+          </Card.Title>
           <Form onSubmit={this.handleSubmit}>
+
             <Form.Group controlId="Username">
               <Form.Label>Username</Form.Label>
               <Form.Control
@@ -41,9 +45,9 @@ class Login extends Component {
                 name="username"
                 onChange={this.handleChange}
               />
-            </Form.Group>
+            {/* </Form.Group> */}
 
-            <Form.Group controlId="password">
+            {/* <Form.Group controlId="password"> */}
               <Form.Label>Password</Form.Label>
               <Form.Control
                 type="password"
@@ -53,18 +57,20 @@ class Login extends Component {
                 onChange={this.handleChange}
                 value={this.state.password}
               />
+              {/* </Form.Group> */}
+              {/* <Form.Group> */}
               <Form.Text className="text">
                 Not a Member? <Link to="/signup">Sign up here</Link>
               </Form.Text>
-            </Form.Group>
+            {/* </Form.Group>
 
-            <Form.Group controlId="submit">
+            <Form.Group controlId="submit"> */}
               <Button variant="primary" type="submit" size="lg" block>
                 Submit
               </Button>
             </Form.Group>
           </Form>
-        </Card>
+        </Card.Body>
       </div>
     );
   }
