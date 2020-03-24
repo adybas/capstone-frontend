@@ -5,7 +5,7 @@ import { AiOutlineSearch, AiOutlineLogin, AiOutlineHome } from 'react-icons/ai';
 
 const Navigation = () => {
     return (
-        <div className="nav">
+        <div className="nav mb-4">
             <Route>
                 < NavLink to="/home" activeClassName="active-item" className="item" > <AiOutlineHome /> Home </NavLink>
                 < NavLink to="/ingredients" activeClassName="active-item" className="item" > <AiOutlineSearch /> Search with Ingredients </NavLink>

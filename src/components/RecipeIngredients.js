@@ -1,14 +1,13 @@
 import React from 'react'
-import { List, Image } from 'semantic-ui-react'
+import { ListGroup, Image } from 'react-bootstrap'
 
 const RecipeIngredients = (props) => {
+    // debugger
     return (
-        <List.Item>
-            <Image avatar src={`${props.ingredient.image}`} />
-            <List.Content>
-                <List.Header>{props.ingredient.originalString}</List.Header>
-            </List.Content>
-        </List.Item> 
+        <ListGroup.Item variant="flush">
+            <Image thumbnail src={props.ingredient.image} alt={props.ingredient.name} variant="flush"/>
+            <p>{props.ingredient.originalString}</p>
+        </ListGroup.Item>
     )
 }
 

@@ -3,8 +3,8 @@ import { connect } from "react-redux";
 import { changeSearchText } from "../redux/actions";
 
 const Searchbar = props => (
-  <div className="">
-    <div className="">
+  <div className="search-bar">
+    <div className="text-center">
       <input
         type="text"
         placeholder="Search"

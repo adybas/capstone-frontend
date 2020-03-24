@@ -14,7 +14,7 @@ import Profile from './Profile'
 
 const Home = (props) => {
     return (
-        <div>
+        <div className="home">
             < Navbar />
 
             <Switch>
@@ -23,7 +23,7 @@ const Home = (props) => {
                     component={SignUp}
                 />
                 <Route
-                    exact path="/login"
+                     path="/login"
                     component={Login}
                 />
                 <Route
@@ -50,11 +50,20 @@ const Home = (props) => {
                         </div>
                     )}
                 />
+                  <Route
+                    exact path="/profile"
+                    render={() => (
+                        <div className="">
+                            <Profile />
+                        </div>
+                    )}
+                />
+             
             </Switch> 
-                {props.currentUser ?
+                {/* {props.currentUser ?
                     < Profile /> :
                     <> </>
-                }       
+                }        */}
             < Footer />
         </div>
     )

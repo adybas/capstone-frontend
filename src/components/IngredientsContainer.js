@@ -14,7 +14,7 @@ class IngredientsContainer extends Component {
                 < Redirect to="/recipes"/> // change redirect to recipes
                 :<div className="">
                     <Searchbar />
-                    "Select Up to 6 Ingredients You would like to cook with today!"
+                    Select Up to 6 Ingredients You would like to cook with today!
                     <IngredientList />
                 </div> }
             </div>

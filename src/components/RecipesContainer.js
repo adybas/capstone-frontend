@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import Recipes from './Recipes'
-import { Card } from 'semantic-ui-react'
+import { CardDeck } from 'react-bootstrap'
 import {resetRedirect} from '../redux/actions'
 
 class RecipesContainer extends Component {
@@ -12,11 +12,10 @@ class RecipesContainer extends Component {
 
     render() {
         return (
-            
-            <div>
-                <Card.Group itemsPerRow={2}>
+            <div className="container">
+                <div class="card-deck">
                 {this.props.userIngredientRecipes.map(recipe => <Recipes recipe={recipe} key={recipe.id}/>)}
-                </Card.Group>
+                </div >
             </div>
         )
     }
