@@ -26,7 +26,7 @@ class IngredientList extends React.Component {
 
         return (
             <div>
-                <h4 className="text-block">Current Selection: <a href="#" onClick={handleDeleteSelected}>{this.props.selectedIngredients} </a></h4>
+                <h4 className="text-block">Current Selection: { <a href="#" onClick={handleDeleteSelected}> {this.props.selectedIngredients.join(', ')} </a>}</h4>
                 <button onClick={handleSearch}>SEARCH RECIPES WITH SELECTION</button>
                 <button onClick={handleClearSelection}>Clear ALL Current Ingredient Selection</button>
                 {this.props.ingredients.map(ing => <IngredientListItem ingredient={ing} key={ing.id}/>)}

@@ -1,8 +1,14 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import Favorites from './Favorites'
+import {resetRedirect} from '../redux/actions'
 
 class Profile extends Component {
+
+    componentDidMount(){
+        this.props.redirect()
+    }
+
     render() {
         // debugger
         return (
@@ -22,5 +28,11 @@ const mapStateToProps = (state) => {
     }
 }
 
+const mapDispatchToProps = (dispatch) => {
+    return {
+        redirect: () => {dispatch(resetRedirect())}
+    }
+}
 
-export default connect(mapStateToProps)(Profile)
+
+export default connect(mapStateToProps, mapDispatchToProps)(Profile)
