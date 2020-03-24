@@ -6,8 +6,9 @@ import {userSelectedIngredients} from '../redux/actions'
 
 class IngredientListItem extends React.Component {
     
-    handleClick = () => {
+    handleClick = (event) => {
         this.props.onSelect(this.props.ingredient.name)
+        event.target.setAttribute("disabled", "")
     }
 
     render(){
