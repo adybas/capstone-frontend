@@ -112,7 +112,7 @@ function favoritingRecipe({vegetarian, vegan, glutenFree, dairyFree, weightWatch
             body: JSON.stringify(favorited)
             }).then(res => res.json())
               .then(favoritedRecipe => {
-                dispatch(favoriteUserRecipe(favoritedRecipe))
+                dispatch(favoriteUserRecipe(favRecipe))
             })
         })
   }

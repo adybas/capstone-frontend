@@ -8,15 +8,22 @@ class IngredientListItem extends React.Component {
     
     handleClick = (event) => {
         this.props.onSelect(this.props.ingredient.name)
-        event.target.setAttribute("disabled", "")
+        event.target.setAttribute("disabled", this.props.disabled)
     }
 
     render(){
         return (
             <div className="content">
-                <button onClick={this.handleClick}>{this.props.ingredient.name}</button>
+                <button onClick={this.handleClick} disabled={this.props.selectedIngredients.find(ing => ing === this.props.ingredient.name)}> {this.props.ingredient.name}</button>
             </div>
         )
+    }
+}
+
+const mapStateToProps = state => {
+    return {
+        disabled: state.disabled,
+        selectedIngredients: state.selectedIngredients
     }
 }
 
@@ -27,4 +34,4 @@ const mapDispatchToProps = dispatch => {
     }
 }
 
-export default connect(null, mapDispatchToProps)(IngredientListItem)
+export default connect(mapStateToProps, mapDispatchToProps)(IngredientListItem)

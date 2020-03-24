@@ -12,9 +12,8 @@ class IngredientList extends React.Component {
             this.props.onSearchSubmit(ingredientsString)
         }
 
-        //userDeselectedIngrdient
-        const handleDeleteSelected = (event) => {
-            this.props.onDeleteClicked(event.target.innerText)
+        const handleDeleteSelected = (ing) => {
+            this.props.onDeleteClicked(ing)
         }
 
         const handleClearSelection = () => {
@@ -23,7 +22,7 @@ class IngredientList extends React.Component {
 
         return (
             <div>
-                <h4 className="text-block">Current Selection: { <a href="#" onClick={handleDeleteSelected}> {this.props.selectedIngredients.join(', ')} </a>}</h4>
+                <h4 className="text-block">Current Selection: {this.props.selectedIngredients.map(ing => <a href="#" key="ing" onClick={() => handleDeleteSelected(ing)}> {ing} </a>)} </h4>
                 <button onClick={handleSearch}>SEARCH RECIPES WITH SELECTION</button>
                 <button onClick={handleClearSelection}>Clear ALL Current Ingredient Selection</button>
                 {this.props.ingredients.map(ing => <IngredientListItem ingredient={ing} key={ing.id}/>)}
