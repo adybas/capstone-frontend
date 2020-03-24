@@ -27,7 +27,7 @@ class Login extends Component {
   };
 
   render() {
-    if (this.state.redirected) {
+    if (this.props.redirect) {
       return <Redirect to="/profile" />; // redirect to user profile!!
     }
     return (
@@ -79,7 +79,8 @@ class Login extends Component {
 
 const mapStateToProps = state => {
   return { 
-    currentUser: state.currentUser 
+    currentUser: state.currentUser, // use to check that user is not logged in
+    redirect: state.redirect 
   }
 }
 

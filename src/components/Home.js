@@ -60,10 +60,6 @@ const Home = (props) => {
                 />
              
             </Switch> 
-                {/* {props.currentUser ?
-                    < Profile /> :
-                    <> </>
-                }        */}
             < Footer />
         </div>
     )

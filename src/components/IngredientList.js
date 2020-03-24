@@ -1,7 +1,7 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import IngredientListItem from './IngredientListItem'
-import {fetchingUserSelectedIngredients, userDeselectedIngrdient} from '../redux/actions'
+import {fetchingUserSelectedIngredients, userDeselectedIngrdient, userClearAllIngredients} from '../redux/actions'
 // class, local state of redirect
 class IngredientList extends React.Component {
 
@@ -12,21 +12,17 @@ class IngredientList extends React.Component {
             this.props.onSearchSubmit(ingredientsString)
         }
 
-        //userDeselectedIngrdient
-        const handleDeleteSelected = (event) => {
-            this.props.onDeleteClicked(event.target.innerText)
+        const handleDeleteSelected = (ing) => {
+            this.props.onDeleteClicked(ing)
         }
 
-        //clear current selection
         const handleClearSelection = () => {
-            let t = this
-            debugger
-            // this.props.selectedIngredients
+           this.props.onClearAllBtn()
         }
 
         return (
             <div>
-                <h4 className="text-block">Current Selection: <a href="#" onClick={handleDeleteSelected}>{this.props.selectedIngredients} </a></h4>
+                <h4 className="text-block">Current Selection: {this.props.selectedIngredients.map(ing => <a href="#" key="ing" onClick={() => handleDeleteSelected(ing)}> {ing} </a>)} </h4>
                 <button onClick={handleSearch}>SEARCH RECIPES WITH SELECTION</button>
                 <button onClick={handleClearSelection}>Clear ALL Current Ingredient Selection</button>
                 {this.props.ingredients.map(ing => <IngredientListItem ingredient={ing} key={ing.id}/>)}
@@ -48,7 +44,8 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = dispatch => {
     return {
         onSearchSubmit: (ingredientsString) => dispatch(fetchingUserSelectedIngredients(ingredientsString)),
-        onDeleteClicked: (ingredient) => dispatch(userDeselectedIngrdient(ingredient))
+        onDeleteClicked: (ingredient) => dispatch(userDeselectedIngrdient(ingredient)),
+        onClearAllBtn: () => dispatch(userClearAllIngredients())
     }
 }
   

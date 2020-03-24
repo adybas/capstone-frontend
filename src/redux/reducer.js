@@ -4,10 +4,11 @@ let initialState = {
   searchText: "",
   ingredients: [],
   selectedIngredients: [],
+  disabled: false,
   currentUser: null,
   userIngredientRecipes: [],
   redirect: false,
-  favorites: [],
+  // favorites: [],
   clickedRecipe: [],
 }
 
@@ -35,6 +36,21 @@ const selectedIngredientsReducer = (state = initialState.selectedIngredients, ac
       return [...state, action.payload]
     case "DESELECTED_INGREDIENT":
       return [...state].filter(ing => ing !== action.payload)
+    case "CLEAR_ALL_INGREDIENTS":
+      return [...state] = []
+    default:
+      return state
+  }
+}
+
+const selectedButtonsReducer = (state = initialState.disabled, action) => {
+  switch (action.type) {
+    case "SELECTED_INGREDIENT":
+      return true
+    case "DESELECTED_INGREDIENT":
+      return false
+    case "CLEAR_ALL_INGREDIENTS":
+      return false
     default:
       return state
   }
@@ -53,6 +69,8 @@ const redirectReducer = (state = initialState.redirect, action) => {
   switch (action.type) {
     case "FETCHED_SELECTED_RECIPES":  
       return true
+    case "LOGIN":
+      return true
     case "RESET_REDIRECT":
       return false
     default:
@@ -60,16 +78,18 @@ const redirectReducer = (state = initialState.redirect, action) => {
   }
 }
 
-const favoriteRecipesReducer = (state = initialState.favorites, action) => {
-  switch (action.type) {
-    case "FAVORITE_A_RECIPE":
-      return [...state, action.payload].flat()
-    case "UNFAVORITE_A_RECIPE":
-      return [...state].filter(recipe => recipe !== action.payload)
-    default:
-      return state
-  }
-}
+// const favoriteRecipesReducer = (state = initialState.currentUser.favorites, action) => {
+//   switch (action.type) {
+//     case "LOGIN":
+//       return [...state, action.payload].flat()
+//     case "FAVORITE_A_RECIPE":
+//       return [...state, action.payload].flat()
+//     case "UNFAVORITE_A_RECIPE":
+//       return [...state].filter(recipe => recipe !== action.payload)
+//     default:
+//       return state
+//   }
+// }
 
 //= initialState.currentUser
 function currentUserReducer(state = initialState.currentUser, action){
@@ -78,6 +98,8 @@ function currentUserReducer(state = initialState.currentUser, action){
       // let newState = {...state, currentUser: {...state.currentUser, user: action.payload}}
       // return newState.currentUser
       return state = action.payload
+    case "FAVORITE_A_RECIPE":
+      return {...state, favorites: [...state.favorites, action.payload]}
     case "LOGOUT":
       return state = null
     default:
@@ -100,9 +122,10 @@ const rootReducer = combineReducers({
   ingredients: ingredientsReducer,
   searchText: searchTextReducer,
   selectedIngredients: selectedIngredientsReducer,
+  disabled: selectedButtonsReducer,
   userIngredientRecipes: fetchedIngredientRecipesReducer,
   redirect: redirectReducer,
-  favoriteRecipes: favoriteRecipesReducer,
+  // favoriteRecipes: favoriteRecipesReducer,
   clickedRecipe: fetchedUserClickedRecipe
 })
 

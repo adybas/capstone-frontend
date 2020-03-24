@@ -66,6 +66,10 @@ function userDeselectedIngrdient(ingredient) {
   return { type: "DESELECTED_INGREDIENT", payload: ingredient}
 }
 
+function userClearAllIngredients(){
+  return { type: "CLEAR_ALL_INGREDIENTS"}
+}
+
 //fetching to API for 2 recipes
 function fetchingUserSelectedIngredients(ingredientsString) {
   return dispatch => {
@@ -108,7 +112,7 @@ function favoritingRecipe({vegetarian, vegan, glutenFree, dairyFree, weightWatch
             body: JSON.stringify(favorited)
             }).then(res => res.json())
               .then(favoritedRecipe => {
-                dispatch(favoriteUserRecipe(favoritedRecipe))
+                dispatch(favoriteUserRecipe(favRecipe))
             })
         })
   }
@@ -146,6 +150,7 @@ export {
   changeSearchText,
   userSelectedIngredients,
   userDeselectedIngrdient,
+  userClearAllIngredients,
   fetchingUserSelectedIngredients,
   resetRedirect,
   fetchingUserClickedRecipe,
