@@ -79,7 +79,7 @@ class Login extends Component {
 
 const mapStateToProps = state => {
   return { 
-    currentUser: state.currentUser,
+    currentUser: state.currentUser, // use to check that user is not logged in
     redirect: state.redirect 
   }
 }

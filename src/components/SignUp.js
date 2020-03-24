@@ -28,7 +28,7 @@ class SignUp extends React.Component {
   };
 
   render() {
-    if (this.state.redirected) {
+    if (this.props.redirected) {
       return <Redirect to="/profile" />; // redirect to user profile!!
     }
     return (
@@ -97,7 +97,8 @@ class SignUp extends React.Component {
 }
 const mapStateToProps = (state) => {
   return {
-      currentUser: state.currentUser
+      currentUser: state.currentUser, // use to check that user is not logged in
+      redirect: state.redirect 
   }
 }
 
@@ -108,4 +109,4 @@ const mapDispatchToProps = dispatch => {
   };
 };
 
-export default connect(null, mapDispatchToProps)(SignUp);
+export default connect(mapStateToProps, mapDispatchToProps)(SignUp);

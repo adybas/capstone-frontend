@@ -1,7 +1,7 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import IngredientListItem from './IngredientListItem'
-import {fetchingUserSelectedIngredients, userDeselectedIngrdient} from '../redux/actions'
+import {fetchingUserSelectedIngredients, userDeselectedIngrdient, userClearAllIngredients} from '../redux/actions'
 // class, local state of redirect
 class IngredientList extends React.Component {
 
@@ -17,11 +17,8 @@ class IngredientList extends React.Component {
             this.props.onDeleteClicked(event.target.innerText)
         }
 
-        //clear current selection
         const handleClearSelection = () => {
-            let t = this
-            debugger
-            // this.props.selectedIngredients
+           this.props.onClearAllBtn()
         }
 
         return (
@@ -48,7 +45,8 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = dispatch => {
     return {
         onSearchSubmit: (ingredientsString) => dispatch(fetchingUserSelectedIngredients(ingredientsString)),
-        onDeleteClicked: (ingredient) => dispatch(userDeselectedIngrdient(ingredient))
+        onDeleteClicked: (ingredient) => dispatch(userDeselectedIngrdient(ingredient)),
+        onClearAllBtn: () => dispatch(userClearAllIngredients())
     }
 }
   

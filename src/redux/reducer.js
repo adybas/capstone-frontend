@@ -35,6 +35,8 @@ const selectedIngredientsReducer = (state = initialState.selectedIngredients, ac
       return [...state, action.payload]
     case "DESELECTED_INGREDIENT":
       return [...state].filter(ing => ing !== action.payload)
+    case "CLEAR_ALL_INGREDIENTS":
+      return [...state] = []
     default:
       return state
   }

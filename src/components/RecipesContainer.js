@@ -1,7 +1,6 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import Recipes from './Recipes'
-import { CardDeck } from 'react-bootstrap'
 import {resetRedirect} from '../redux/actions'
 
 class RecipesContainer extends Component {
