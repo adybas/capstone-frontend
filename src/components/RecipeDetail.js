@@ -1,7 +1,8 @@
 import React from "react";
 import { connect } from "react-redux";
 import { fetchingUserClickedRecipe, favoritingRecipe } from "../redux/actions";
-import {  OverlayTrigger, Button, Tooltip } from "react-bootstrap";
+import { OverlayTrigger, Button, Tooltip } from "react-bootstrap";
+import { AiOutlineHeart, AiFillHeart } from 'react-icons/ai'
 
 class RecipeDetail extends React.Component {
   componentDidMount() {
@@ -10,7 +11,7 @@ class RecipeDetail extends React.Component {
   }
 
   handleLike = () => {
-    this.props.favoriteRecipe(
+      this.props.favoriteRecipe(
       this.props.clickedRecipe[0],
       this.props.currentUser
     );
@@ -31,14 +32,14 @@ class RecipeDetail extends React.Component {
               delay={{ show: 250, hide: 400 }}
               overlay={this.renderTooltip}
             >
-              <Button variant="success"> Add to Favs </Button>
+              <Button onClick={this.handleLike} variant="success"> < AiOutlineHeart /> </Button>
             </OverlayTrigger>
             ) : (
               <span> </span>
             )}
             <div className="img-container">
               <img className="card-img-top" src={`${this.props.clickedRecipe[0].image}`}></img>
-              <div className="text-block">
+              <div className="text-block text-block-recipe">
                 <h3>{this.props.clickedRecipe[0].title}</h3>
               </div>
             </div>

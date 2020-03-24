@@ -59,7 +59,11 @@ function changeSearchText(value) {
 }
 
 function userSelectedIngredients(value) {
-  return { type: "SELECTED_INGREDIENTS", payload: value };
+  return { type: "SELECTED_INGREDIENT", payload: value };
+}
+
+function userDeselectedIngrdient(ingredient) {
+  return { type: "DESELECTED_INGREDIENT", payload: ingredient}
 }
 
 //fetching to API for 2 recipes
@@ -141,6 +145,7 @@ export {
   fetchingIngredients,
   changeSearchText,
   userSelectedIngredients,
+  userDeselectedIngrdient,
   fetchingUserSelectedIngredients,
   resetRedirect,
   fetchingUserClickedRecipe,

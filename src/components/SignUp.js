@@ -29,7 +29,7 @@ class SignUp extends React.Component {
 
   render() {
     if (this.state.redirected) {
-      return <Redirect to="/home" />; // redirect to user profile!!
+      return <Redirect to="/profile" />; // redirect to user profile!!
     }
     return (
       <div className="form-group">
@@ -93,6 +93,11 @@ class SignUp extends React.Component {
         </Card.Body>
       </div>
     );
+  }
+}
+const mapStateToProps = (state) => {
+  return {
+      currentUser: state.currentUser
   }
 }
 

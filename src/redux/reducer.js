@@ -31,8 +31,10 @@ const ingredientsReducer = (state = initialState.ingredients, action) => {
 
 const selectedIngredientsReducer = (state = initialState.selectedIngredients, action) => {
   switch (action.type) {
-    case "SELECTED_INGREDIENTS":
+    case "SELECTED_INGREDIENT":
       return [...state, action.payload]
+    case "DESELECTED_INGREDIENT":
+      return [...state].filter(ing => ing !== action.payload)
     default:
       return state
   }

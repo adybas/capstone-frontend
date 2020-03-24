@@ -10,7 +10,8 @@ class Login extends Component {
       username: "",
       password: ""
     },
-    redirected: false
+    redirected: false,
+   // loading: true
   };
 
   handleChange = event => {
@@ -27,7 +28,7 @@ class Login extends Component {
 
   render() {
     if (this.state.redirected) {
-      return <Redirect to="/home" />; // redirect to user profile!!
+      return <Redirect to="/profile" />; // redirect to user profile!!
     }
     return (
       <div className="form-group">
@@ -77,8 +78,10 @@ class Login extends Component {
 }
 
 const mapStateToProps = state => {
-  return { currentUser: state.currentUser };
-};
+  return { 
+    currentUser: state.currentUser 
+  }
+}
 
 const mapDispatchToProps = dispatch => {
   return {

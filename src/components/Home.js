@@ -50,12 +50,20 @@ const Home = (props) => {
                         </div>
                     )}
                 />
+                  <Route
+                    exact path="/profile"
+                    render={() => (
+                        <div className="">
+                            <Profile />
+                        </div>
+                    )}
+                />
              
             </Switch> 
-                {props.currentUser ?
+                {/* {props.currentUser ?
                     < Profile /> :
                     <> </>
-                }       
+                }        */}
             < Footer />
         </div>
     )
