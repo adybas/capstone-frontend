@@ -12,12 +12,15 @@ function signingUp({ first_name, last_name, username, password }) {
       .then(res => res.json())
       .then(user => {
         if(user.message){
-          errorHandling(user.message[0])
+          dispatch(errorHandling(user.message[0]))
         } else {
           dispatch(login(user));
         }
-      });
-  };
+      })
+      // .catch(error => {
+      //   dispatch(errorHandling(error))
+      // })
+  }
 }
 
 //logging into the app again

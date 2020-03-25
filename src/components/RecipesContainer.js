@@ -12,7 +12,7 @@ class RecipesContainer extends Component {
     render() {
         return (
             <div className="container">
-                <div class="card-deck">
+                <div className="card-deck">
                 {this.props.userIngredientRecipes.map(recipe => <Recipes recipe={recipe} key={recipe.id}/>)}
                 </div >
             </div>

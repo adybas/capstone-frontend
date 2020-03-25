@@ -17,7 +17,7 @@ class Profile extends Component {
             <div > 
                 <h1>Welcome {this.props.currentUser.user.first_name}!</h1>
                 <div className="container">
-                    <div class="card-deck row row-cols-2">
+                    <div className="card-deck row row-cols-2">
                     {this.props.currentUser.favorites.length > 0 ?
                         this.props.currentUser.favorites.map(recipe => <Favorites recipe={recipe} key={recipe.id} />)
                     : <p> Search for recipes and favorite them to see them here </p>  

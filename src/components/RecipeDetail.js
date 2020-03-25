@@ -13,9 +13,12 @@ class RecipeDetail extends React.Component {
   handleLike = (event) => {
     if(event.target.classList.contains("btn-success")){
       event.target.classList.replace("btn-success", "btn-danger")
+      event.target.innerText = "Favorited Already <3"
       this.props.favoriteRecipe(this.props.clickedRecipe[0], this.props.currentUser)
     } else {
       event.target.classList.replace("btn-danger", "btn-success")
+      debugger
+      event.target.innerText = "Favorite Me <3" 
       this.props.unfavoriteRecipe(this.props.clickedRecipe[0], this.props.currentUser)
     }
   }
@@ -24,8 +27,12 @@ class RecipeDetail extends React.Component {
     return <Tooltip {...props}>Add to Favorites</Tooltip>;
   }
 
+  handleBtnColor(){
+   return 
+  }
+
+
   render() {
-    debugger
     return (
       <div className="container card mx-auto">
         {this.props.clickedRecipe[0] ? (
@@ -36,7 +43,7 @@ class RecipeDetail extends React.Component {
               delay={{ show: 250, hide: 400 }}
               overlay={this.renderTooltip}
             >
-              <Button onClick={this.handleLike} variant={this.props.currentUser.favorites.includes(this.props.clickedRecipe[0].title) ? "danger": "success"}> Favorite 
+              <Button onClick={this.handleLike} variant={this.props.currentUser.favorites.find(recipe => recipe.db_id === parseInt(this.props.routeProps.match.params.id)) ? "danger" : "success"}> Favorite 
                  {/* < AiOutlineHeart onClick={this.handleLike} variant="success" /> */}
                   </Button>
             </OverlayTrigger>
