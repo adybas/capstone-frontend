@@ -8,8 +8,8 @@ let initialState = {
   currentUser: null,
   userIngredientRecipes: [],
   redirect: false,
-  // favorites: [],
   clickedRecipe: [],
+  error: null
 }
 
 const searchTextReducer = (state = initialState.searchText, action) => {
@@ -59,7 +59,7 @@ const selectedButtonsReducer = (state = initialState.disabled, action) => {
 const fetchedIngredientRecipesReducer = (state = initialState.userIngredientRecipes, action) => {
   switch (action.type) {
     case "FETCHED_SELECTED_RECIPES":
-      return [...state, action.payload].flat()
+      return state = action.payload
     default:
       return state
   }
@@ -78,28 +78,17 @@ const redirectReducer = (state = initialState.redirect, action) => {
   }
 }
 
-// const favoriteRecipesReducer = (state = initialState.currentUser.favorites, action) => {
-//   switch (action.type) {
-//     case "LOGIN":
-//       return [...state, action.payload].flat()
-//     case "FAVORITE_A_RECIPE":
-//       return [...state, action.payload].flat()
-//     case "UNFAVORITE_A_RECIPE":
-//       return [...state].filter(recipe => recipe !== action.payload)
-//     default:
-//       return state
-//   }
-// }
-
 //= initialState.currentUser
+      // let newState = {...state, currentUser: {...state.currentUser, user: action.payload}}
+      // return newState.currentUser
 function currentUserReducer(state = initialState.currentUser, action){
   switch (action.type) {
     case "LOGIN":
-      // let newState = {...state, currentUser: {...state.currentUser, user: action.payload}}
-      // return newState.currentUser
       return state = action.payload
     case "FAVORITE_A_RECIPE":
       return {...state, favorites: [...state.favorites, action.payload]}
+    case "UNFAVORITE_A_RECIPE":
+      return {...state, favorites: state.favorites.filter(recipe => recipe.id !== action.payload)}
     case "LOGOUT":
       return state = null
     default:
@@ -117,6 +106,15 @@ const fetchedUserClickedRecipe = (state = initialState.clickedRecipe, action) =>
   }
 }
 
+const errorReducer = (state = initialState.error, action) => {
+  switch (action.type) {
+    case "ERROR":
+      return state = action.payload
+    default:
+      return state
+  }
+}
+
 const rootReducer = combineReducers({
   currentUser: currentUserReducer,
   ingredients: ingredientsReducer,
@@ -125,8 +123,8 @@ const rootReducer = combineReducers({
   disabled: selectedButtonsReducer,
   userIngredientRecipes: fetchedIngredientRecipesReducer,
   redirect: redirectReducer,
-  // favoriteRecipes: favoriteRecipesReducer,
-  clickedRecipe: fetchedUserClickedRecipe
+  clickedRecipe: fetchedUserClickedRecipe,
+  error: errorReducer
 })
 
 export default rootReducer

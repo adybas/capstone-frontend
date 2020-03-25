@@ -1,6 +1,6 @@
 import React from "react";
 import { connect } from "react-redux";
-import { fetchingUserClickedRecipe, favoritingRecipe } from "../redux/actions";
+import { fetchingUserClickedRecipe, favoritingRecipe, unfavoritingUserRecipe } from "../redux/actions";
 import { OverlayTrigger, Button, Tooltip } from "react-bootstrap";
 import { AiOutlineHeart, AiFillHeart } from 'react-icons/ai'
 
@@ -10,16 +10,27 @@ class RecipeDetail extends React.Component {
     this.props.recipe(id);
   }
 
-  handleLike = () => {
-      this.props.favoriteRecipe(
-      this.props.clickedRecipe[0],
-      this.props.currentUser
-    );
-  };
+  handleLike = (event) => {
+    if(event.target.classList.contains("btn-success")){
+      event.target.classList.replace("btn-success", "btn-danger")
+      event.target.innerText = "Favorited Already <3"
+      this.props.favoriteRecipe(this.props.clickedRecipe[0], this.props.currentUser)
+    } else {
+      event.target.classList.replace("btn-danger", "btn-success")
+      debugger
+      event.target.innerText = "Favorite Me <3" 
+      this.props.unfavoriteRecipe(this.props.clickedRecipe[0], this.props.currentUser)
+    }
+  }
 
   renderTooltip(props) {
     return <Tooltip {...props}>Add to Favorites</Tooltip>;
   }
+
+  handleBtnColor(){
+   return 
+  }
+
 
   render() {
     return (
@@ -32,7 +43,9 @@ class RecipeDetail extends React.Component {
               delay={{ show: 250, hide: 400 }}
               overlay={this.renderTooltip}
             >
-              <Button onClick={this.handleLike} variant="success"> < AiOutlineHeart /> </Button>
+              <Button onClick={this.handleLike} variant={this.props.currentUser.favorites.find(recipe => recipe.db_id === parseInt(this.props.routeProps.match.params.id)) ? "danger" : "success"}> Favorite 
+                 {/* < AiOutlineHeart onClick={this.handleLike} variant="success" /> */}
+                  </Button>
             </OverlayTrigger>
             ) : (
               <span> </span>
@@ -70,10 +83,13 @@ const mapStateToProps = state => {
 const mapDispatchToProps = dispatch => {
   return {
     recipe: id => {
-      dispatch(fetchingUserClickedRecipe(id));
+      dispatch(fetchingUserClickedRecipe(id))
     },
     favoriteRecipe: (recipe, user) => {
-      dispatch(favoritingRecipe(recipe, user));
+      dispatch(favoritingRecipe(recipe, user))
+    }, 
+    unfavoriteRecipe: (recipe, user) => {
+      dispatch(unfavoritingUserRecipe(recipe, user))
     }
   };
 };

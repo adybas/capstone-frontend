@@ -98,7 +98,8 @@ class SignUp extends React.Component {
 const mapStateToProps = (state) => {
   return {
       currentUser: state.currentUser, // use to check that user is not logged in
-      redirect: state.redirect 
+      redirect: state.redirect,
+      error: state.error
   }
 }
 
