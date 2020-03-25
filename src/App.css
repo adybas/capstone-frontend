@@ -78,3 +78,40 @@ input[type=text], input[type=password] {
   padding-left: 20px;
   padding-right: 20px;
 }
+
+.profile-header {
+  font-size: 4rem;
+  font-weight: bold;
+  text-align: center;
+}
+
+.left-column {
+  float: left;
+  width: 50%;
+  margin: 2%;
+  overflow: hidden;
+}
+
+.recipe-card {
+  overflow: hidden;
+  margin: 3%;
+}
+
+.recipe-card.hover{
+
+}
+
+.recipe-card-title {
+  overflow: hidden;
+  color:black;
+  -webkit-font-smoothing: auto
+}
+
+.recipe-card-image {
+
+}
+
+.right-column {
+  float: right;
+  width: 40%;
+}
