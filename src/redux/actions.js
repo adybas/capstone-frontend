@@ -11,7 +11,11 @@ function signingUp({ first_name, last_name, username, password }) {
     })
       .then(res => res.json())
       .then(user => {
-        dispatch(login(user));
+        if(user.message){
+          errorHandling(user.message[0])
+        } else {
+          dispatch(login(user));
+        }
       });
   };
 }
@@ -33,6 +37,10 @@ function loggingIn({ username, password }) {
         dispatch(login(user));
       });
   };
+}
+
+function errorHandling(error) {
+  return { type: "ERROR", payload: error}
 }
 
 function login(user) {
@@ -87,6 +95,23 @@ function fetchedUserRecipes(recipes) {
   return { type: "FETCHED_SELECTED_RECIPES", payload: recipes };
 }
 
+// fetching from API the specific recipe
+function fetchingUserClickedRecipe(id) {
+  return dispatch => {
+    fetch(
+      `https://api.spoonacular.com/recipes/${id}/information?includeNutrition=false&apiKey=${process.env.REACT_APP_APIKEY}`
+    )
+      .then(res => res.json())
+      .then(recipe => {
+        dispatch(fetchedUserClickedRecipe(recipe));
+      })
+  }
+}
+
+function fetchedUserClickedRecipe(recipe) {
+  return { type: "FETCHED_USER_CLICKED_RECIPE", payload: recipe };
+}
+
 function resetRedirect() {
   return { type: "RESET_REDIRECT" };
 }
@@ -118,30 +143,28 @@ function favoritingRecipe({vegetarian, vegan, glutenFree, dairyFree, weightWatch
   }
 }
 
-// fetching from API the specific recipe
-function fetchingUserClickedRecipe(id) {
-  return dispatch => {
-    fetch(
-      `https://api.spoonacular.com/recipes/${id}/information?includeNutrition=false&apiKey=${process.env.REACT_APP_APIKEY}`
-    )
-      .then(res => res.json())
-      .then(recipe => {
-        dispatch(fetchedUserClickedRecipe(recipe));
-      });
-  };
-}
-
 function favoriteUserRecipe(favoritedRecipe) {
   return { type: "FAVORITE_A_RECIPE", payload: favoritedRecipe };
+}
+
+function unfavoritingUserRecipe(recipe, user){
+  let recipe_id = user.favorites.find(rec => rec.db_id === recipe.id).id
+  let favorited = {recipe_id: recipe_id, user_id: user.user.id, favorited: false}
+    fetch("http://localhost:3000/user_recipes/destroy", {
+      method: "POST",
+      headers: {
+          "Content-Type" : "application/json",
+          "Accept" : "application/json"
+      },
+      body: JSON.stringify(favorited)})
+      return { type: "UNFAVORITE_A_RECIPE", payload: recipe_id }
 }
 
 function unfavoriteUserRecipe(recipe) {
   return { type: "UNFAVORITE_A_RECIPE", payload: recipe };
 }
 
-function fetchedUserClickedRecipe(recipe) {
-  return { type: "FETCHED_USER_CLICKED_RECIPE", payload: recipe };
-}
+
 
 export {
   signingUp,
@@ -154,8 +177,9 @@ export {
   fetchingUserSelectedIngredients,
   resetRedirect,
   fetchingUserClickedRecipe,
-  favoritingRecipe
-};
+  favoritingRecipe,
+  unfavoritingUserRecipe
+}
 
 //make a POST for favs
 //vegetarian, vegan, glutenFree, dairyFree, weightWatcherSmartPoints, lowFodmap, preparationMinutes, cookingMinutes, sourceUrl, spoonacularSourceUrl, spoonacularScore, creditsText, sourceName, title, db_id, servings, readyInMinutes, image, summary, instructions
