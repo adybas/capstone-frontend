@@ -3,6 +3,14 @@ import { connect } from "react-redux";
 import { fetchingUserClickedRecipe, favoritingRecipe, unfavoritingUserRecipe } from "../redux/actions";
 import { OverlayTrigger, Button, Tooltip } from "react-bootstrap";
 import { AiOutlineHeart, AiFillHeart } from 'react-icons/ai'
+import vegetarian from '../assets/images/vegetarian.png'
+import nonVegetarian from '../assets/images/nonVegetarian.png'
+import vegan from '../assets/images/vegan.png'
+import nonVegan from '../assets/images/nonVegan.png'
+import dairyFree from '../assets/images/dairyFree.png'
+import glutenFree from '../assets/images/glutenFree.png'
+// import lowFodmap from '../assets/images/lowFodmap.png'
+
 
 class RecipeDetail extends React.Component {
   componentDidMount() {
@@ -17,7 +25,6 @@ class RecipeDetail extends React.Component {
       this.props.favoriteRecipe(this.props.clickedRecipe[0], this.props.currentUser)
     } else {
       event.target.classList.replace("btn-danger", "btn-success")
-      debugger
       event.target.innerText = "Favorite Me <3" 
       this.props.unfavoriteRecipe(this.props.clickedRecipe[0], this.props.currentUser)
     }
@@ -33,7 +40,7 @@ class RecipeDetail extends React.Component {
 
 
   render() {
-    // debugger
+   // debugger
     // let {vegetarian, vegan, glutenFree, dairyFree, weightWatcherSmartPoints, lowFodmap, preparationMinutes, cookingMinutes, sourceUrl, spoonacularSourceUrl, spoonacularScore, creditsText, sourceName, title, servings, readyInMinutes, image, summary, instructions } = this.props.clickedRecipe[0]
     return (
       <div className="container card mx-auto">
@@ -64,13 +71,13 @@ class RecipeDetail extends React.Component {
               {this.props.clickedRecipe[0].preparationMinutes}
               <p>Cooking Minutes: {this.props.clickedRecipe[0].cookingMinutes}</p>
             </div>
-            // wite func that set innerHTML to this div
-            <div>{this.props.clickedRecipe[0].summary}</div>{" "}
-            <div> vegetarian ? {this.props.clickedRecipe[0].vegetarian ? "true" : "false"} </div>
-            <div> vegan ? {this.props.clickedRecipe[0].vegan} </div>
-            <div> glutenFree ? {this.props.clickedRecipe[0].glutenFree} </div>
-            <div> dairyFree ? {this.props.clickedRecipe[0].dairyFree} </div>
-            <div> lowFodmap ? {this.props.clickedRecipe[0].lowFodmap} </div>
+
+            <div dangerouslySetInnerHTML={{ __html: this.props.clickedRecipe[0].summary }}></div>
+            <div> vegetarian ? {this.props.clickedRecipe[0].vegetarian ? <img src={vegetarian} /> : <img src={nonVegetarian} />} </div>
+            <div> vegan ? {this.props.clickedRecipe[0].vegan ? <img src={vegan} /> : <img src={nonVegan} />} </div>
+            <div> glutenFree ? {this.props.clickedRecipe[0].glutenFree ? <img src={glutenFree} /> : null} </div>
+            <div> dairyFree ? {this.props.clickedRecipe[0].dairyFree ? <img src={dairyFree} /> : null} </div>
+            {/* <div> lowFodmap ? {this.props.clickedRecipe[0].lowFodmap ? <img src={lowFodmap} /> : null}} </div> */}
             <div> weight watchers points ?{this.props.clickedRecipe[0].weightWatcherSmartPoints} </div>
             
             <div> servings ? {this.props.clickedRecipe[0].servings} </div>

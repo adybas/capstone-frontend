@@ -60,6 +60,8 @@ const Home = (props) => {
                 />
              
             </Switch> 
+            Nourish your creative frugal side
+            Discover Recipes
             < Footer />
         </div>
     )
