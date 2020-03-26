@@ -62,22 +62,27 @@ class RecipeDetail extends React.Component {
             <div className="img-container">
               <img className="card-img-top" src={`${this.props.clickedRecipe[0].image}`}></img>
               <div className="text-block text-block-recipe">
-                <h3>{this.props.clickedRecipe[0].title}</h3>
+                <h1>{this.props.clickedRecipe[0].title}</h1>
               </div>
             </div>
-            {/* <div className="text-center">{this.props.clickedRecipe[0].title}</div> */}
-            <div>
-              Preparation Minutes:{" "}
-              {this.props.clickedRecipe[0].preparationMinutes}
-              <p>Cooking Minutes: {this.props.clickedRecipe[0].cookingMinutes}</p>
+
+            <div className="dietary-block">
+              <div className="row">
+              <div class="col-sm"> {this.props.clickedRecipe[0].vegetarian ? <img className="img-responsive" src={vegetarian} /> : <img className="img-responsive" src={nonVegetarian} />} </div>
+              <div class="col-sm"> {this.props.clickedRecipe[0].vegan ? <img className="img-responsive" src={vegan} /> : <img className="img-responsive" src={nonVegan} />}</div>
+              <div class="col-sm"> {this.props.clickedRecipe[0].glutenFree ? <img className="img-responsive" src={glutenFree} /> : null} </div>
+              <div class="col-sm"> {this.props.clickedRecipe[0].dairyFree ? <img className="img-responsive" src={dairyFree} /> : null} </div>
+              {/* <span> lowFodmap ? {this.props.clickedRecipe[0].lowFodmap ? <img src={lowFodmap} /> : null}} </span> */}
+              </div>
+            </div>
+
+            <div className="time-block">
+              <span>Total Time: {this.props.clickedRecipe[0].preparationMinutes + this.props.clickedRecipe[0].cookingMinutes} </span>
+              <span>Preparation Minutes: {this.props.clickedRecipe[0].preparationMinutes} </span>
+              <span>Cooking Minutes: {this.props.clickedRecipe[0].cookingMinutes}</span>
             </div>
 
             <div dangerouslySetInnerHTML={{ __html: this.props.clickedRecipe[0].summary }}></div>
-            <div> vegetarian ? {this.props.clickedRecipe[0].vegetarian ? <img src={vegetarian} /> : <img src={nonVegetarian} />} </div>
-            <div> vegan ? {this.props.clickedRecipe[0].vegan ? <img src={vegan} /> : <img src={nonVegan} />} </div>
-            <div> glutenFree ? {this.props.clickedRecipe[0].glutenFree ? <img src={glutenFree} /> : null} </div>
-            <div> dairyFree ? {this.props.clickedRecipe[0].dairyFree ? <img src={dairyFree} /> : null} </div>
-            {/* <div> lowFodmap ? {this.props.clickedRecipe[0].lowFodmap ? <img src={lowFodmap} /> : null}} </div> */}
             <div> weight watchers points ?{this.props.clickedRecipe[0].weightWatcherSmartPoints} </div>
             
             <div> servings ? {this.props.clickedRecipe[0].servings} </div>

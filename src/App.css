@@ -120,3 +120,14 @@ input[type=text], input[type=password] {
 .footer {
   float: inherit;
 }
+
+.dietary-block {
+  margin:1% 0% 1% 0%;
+  display: flex;
+  height: 5%;
+  justify-content: center;
+} 
+
+.dietary-block img {
+  max-inline-size: 100%;
+} 
