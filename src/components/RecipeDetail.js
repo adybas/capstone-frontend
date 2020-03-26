@@ -33,6 +33,8 @@ class RecipeDetail extends React.Component {
 
 
   render() {
+    // debugger
+    // let {vegetarian, vegan, glutenFree, dairyFree, weightWatcherSmartPoints, lowFodmap, preparationMinutes, cookingMinutes, sourceUrl, spoonacularSourceUrl, spoonacularScore, creditsText, sourceName, title, servings, readyInMinutes, image, summary, instructions } = this.props.clickedRecipe[0]
     return (
       <div className="container card mx-auto">
         {this.props.clickedRecipe[0] ? (
@@ -64,6 +66,18 @@ class RecipeDetail extends React.Component {
             </div>
             // wite func that set innerHTML to this div
             <div>{this.props.clickedRecipe[0].summary}</div>{" "}
+            <div> vegetarian ? {this.props.clickedRecipe[0].vegetarian ? "true" : "false"} </div>
+            <div> vegan ? {this.props.clickedRecipe[0].vegan} </div>
+            <div> glutenFree ? {this.props.clickedRecipe[0].glutenFree} </div>
+            <div> dairyFree ? {this.props.clickedRecipe[0].dairyFree} </div>
+            <div> lowFodmap ? {this.props.clickedRecipe[0].lowFodmap} </div>
+            <div> weight watchers points ?{this.props.clickedRecipe[0].weightWatcherSmartPoints} </div>
+            
+            <div> servings ? {this.props.clickedRecipe[0].servings} </div>
+            <div> sourceUrl ? {this.props.clickedRecipe[0].sourceUrl} </div>
+            <div> spoonacularSourceUrl ? {this.props.clickedRecipe[0].spoonacularSourceUrl} </div>
+            <div> sourceName ? {this.props.clickedRecipe[0].sourceName} </div>
+            <div> instructions ? {this.props.clickedRecipe[0].instructions} </div>
           </div>
         ) : (
           <div></div>

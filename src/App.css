@@ -4,7 +4,7 @@ html, body {
   /* padding-top: 75px; */
   padding-bottom: 55px;
   height: 100%;
-  background: url(./home.png) no-repeat center/cover fixed;
+  background: url(../src/assets/images/home.png) no-repeat center/cover fixed;
   color: white;
   font-family: 'Montserrat', sans-serif;
   text-decoration: none;
@@ -114,4 +114,8 @@ input[type=text], input[type=password] {
 .right-column {
   float: right;
   width: 40%;
+}
+
+.footer {
+  float: inherit;
 }

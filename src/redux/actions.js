@@ -17,9 +17,6 @@ function signingUp({ first_name, last_name, username, password }) {
           dispatch(login(user));
         }
       })
-      // .catch(error => {
-      //   dispatch(errorHandling(error))
-      // })
   }
 }
 
