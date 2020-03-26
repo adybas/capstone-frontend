@@ -68,28 +68,33 @@ class RecipeDetail extends React.Component {
 
             <div className="dietary-block">
               <div className="row">
-              <div class="col-sm"> {this.props.clickedRecipe[0].vegetarian ? <img className="img-responsive" src={vegetarian} /> : <img className="img-responsive" src={nonVegetarian} />} </div>
-              <div class="col-sm"> {this.props.clickedRecipe[0].vegan ? <img className="img-responsive" src={vegan} /> : <img className="img-responsive" src={nonVegan} />}</div>
-              <div class="col-sm"> {this.props.clickedRecipe[0].glutenFree ? <img className="img-responsive" src={glutenFree} /> : null} </div>
-              <div class="col-sm"> {this.props.clickedRecipe[0].dairyFree ? <img className="img-responsive" src={dairyFree} /> : null} </div>
-              {/* <span> lowFodmap ? {this.props.clickedRecipe[0].lowFodmap ? <img src={lowFodmap} /> : null}} </span> */}
+                <div className="col-sm"> {this.props.clickedRecipe[0].vegetarian ? <img className=".img-fluid" src={vegetarian} /> : <img className=".img-fluid" src={nonVegetarian} />} </div>
+                <div className="col-sm"> {this.props.clickedRecipe[0].vegan ? <img className=".img-fluid" src={vegan} /> : <img className=".img-fluid" src={nonVegan} />}</div>
+                <div className="col-sm"> {this.props.clickedRecipe[0].glutenFree ? <img className=".img-fluid" src={glutenFree} /> : null} </div>
+                <div className="col-sm"> {this.props.clickedRecipe[0].dairyFree ? <img className=".img-fluid" src={dairyFree} /> : null} </div>
+                {/* <div class="col-sm"> lowFodmap ? {this.props.clickedRecipe[0].lowFodmap ? <img src={lowFodmap} /> : null}} </div> */}
               </div>
             </div>
-
-            <div className="time-block">
-              <span>Total Time: {this.props.clickedRecipe[0].preparationMinutes + this.props.clickedRecipe[0].cookingMinutes} </span>
-              <span>Preparation Minutes: {this.props.clickedRecipe[0].preparationMinutes} </span>
-              <span>Cooking Minutes: {this.props.clickedRecipe[0].cookingMinutes}</span>
+<div className="row">
+            <div class="col-sm-8">
+              <div dangerouslySetInnerHTML={{ __html: this.props.clickedRecipe[0].summary }}></div>
             </div>
+            <div class="col-sm-4">
+              <div className="time-block">
+                <span>Total Time: {this.props.clickedRecipe[0].preparationMinutes + this.props.clickedRecipe[0].cookingMinutes} </span>
+                <span>Preparation Minutes: {this.props.clickedRecipe[0].preparationMinutes} </span>
+                <span>Cooking Minutes: {this.props.clickedRecipe[0].cookingMinutes}</span>
+              </div>
 
-            <div dangerouslySetInnerHTML={{ __html: this.props.clickedRecipe[0].summary }}></div>
-            <div> weight watchers points ?{this.props.clickedRecipe[0].weightWatcherSmartPoints} </div>
-            
-            <div> servings ? {this.props.clickedRecipe[0].servings} </div>
-            <div> sourceUrl ? {this.props.clickedRecipe[0].sourceUrl} </div>
-            <div> spoonacularSourceUrl ? {this.props.clickedRecipe[0].spoonacularSourceUrl} </div>
-            <div> sourceName ? {this.props.clickedRecipe[0].sourceName} </div>
-            <div> instructions ? {this.props.clickedRecipe[0].instructions} </div>
+              <div> weight watchers points ?{this.props.clickedRecipe[0].weightWatcherSmartPoints} </div>
+              
+              <div> servings ? {this.props.clickedRecipe[0].servings} </div>
+              <div> sourceUrl ? {this.props.clickedRecipe[0].sourceUrl} </div>
+              <div> spoonacularSourceUrl ? {this.props.clickedRecipe[0].spoonacularSourceUrl} </div>
+              <div> sourceName ? {this.props.clickedRecipe[0].sourceName} </div>
+            </div>
+            </div>
+            <div> instructions  {this.props.clickedRecipe[0].instructions} </div>
           </div>
         ) : (
           <div></div>

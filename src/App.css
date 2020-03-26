@@ -128,6 +128,5 @@ input[type=text], input[type=password] {
   justify-content: center;
 } 
 
-.dietary-block img {
-  max-inline-size: 100%;
-} 
+/* .dietary-block img {
+}  */
