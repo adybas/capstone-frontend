@@ -6,6 +6,7 @@ class HomeCom extends Component {
     render() {
         return (
             <div className="landing-page">
+                <div className="bg-image"></div>
                 <img className="bg-image" src={firsthome}/>
                 <div className="bg-text hover-shadow">
                     <h2>Nourish your <br/>creative side</h2>

@@ -9,12 +9,12 @@ const Recipes = (props) => {
 
     return (
         <>
-            <Card>
-                <Card.Header as={Link} to={`/recipes/${id}`}>{title}</Card.Header>
+            <Card className="ing-recipes text-block">
+                <Card.Header className="ing-recipe-header " as={Link} to={`/recipes/${id}`}>{title}</Card.Header>
                 <Card.Img src={`${image}`} variant="top" alt={`${image}`}/>
                 <Card.Body>
-                <Card.Subtitle>
-                    <span>Uses {missedIngredientCount} new ingredients</span>
+                <Card.Subtitle className="total-time">
+                    <span>Uses {missedIngredientCount} new ingredient(s)!</span>
                 </Card.Subtitle>
                   
                     <span className='used-count'>Ingredients I Have: {usedIngredientCount}</span>

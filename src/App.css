@@ -201,3 +201,21 @@ input[type=text], input[type=password] {
 .hover-shadow:hover {
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 50px 0 rgba(0, 0, 0, 0.19);
 }
+
+.ing-recipes{
+}
+
+.ing-recipe-header {
+  font-size: large;
+  font-weight: bolder;
+  color: white;
+  text-align: center;
+}
+
+.list-group-item {
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  color: black;
+  background-color:rgba(255, 255, 255, 0.817);
+}
