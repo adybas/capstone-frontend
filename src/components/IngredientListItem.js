@@ -14,7 +14,7 @@ class IngredientListItem extends React.Component {
     render(){
         return (
             <div className="content">
-                <button onClick={this.handleClick} disabled={this.props.selectedIngredients.find(ing => ing === this.props.ingredient.name)}> {this.props.ingredient.name}</button>
+               <li> <button className="btn btn-info btn-md"onClick={this.handleClick} disabled={this.props.selectedIngredients.find(ing => ing === this.props.ingredient.name)}> {this.props.ingredient.name}</button></li>
             </div>
         )
     }

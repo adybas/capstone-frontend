@@ -21,11 +21,19 @@ class IngredientList extends React.Component {
         }
 
         return (
-            <div>
-                <h4 className="text-block">Current Selection: {this.props.selectedIngredients.map(ing => <a href="#" key="ing" onClick={() => handleDeleteSelected(ing)}> {ing} </a>)} </h4>
-                <button onClick={handleSearch}>SEARCH RECIPES WITH SELECTION</button>
-                <button onClick={handleClearSelection}>Clear ALL Current Ingredient Selection</button>
-                {this.props.ingredients.map(ing => <IngredientListItem ingredient={ing} key={ing.id}/>)}
+            <div> 
+                <div className="text-block content">
+                <h5 className="text-center">Select Up to 6 Ingredients You would like to cook with today!</h5>
+                <h3> Current Selection: {this.props.selectedIngredients.map(ing => <a href="#" key="ing" onClick={() => handleDeleteSelected(ing)}> {ing} </a>)} </h3>
+                </div>
+
+                <div className="ing-list-btns">
+                    <button className="btn btn-outline-warning btn-lg" onClick={handleSearch}>SEARCH RECIPES WITH SELECTION</button>
+                    <button className="btn btn-outline-info btn-lg" onClick={handleClearSelection}>CLEAR ALL INGREDIENTS SELECTION</button>
+                </div>
+                <ul className="ingredients-columns">
+                    {this.props.ingredients.map(ing => <IngredientListItem ingredient={ing} key={ing.id}/>)}
+                </ul>
             </div>
         )
     }

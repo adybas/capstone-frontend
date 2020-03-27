@@ -13,8 +13,7 @@ html, body {
 
 .nav{
   padding: 10px;
-  background-color: aliceblue;
-  opacity: .7;
+  background-color: rgba(240, 248, 255, 0.7); 
   box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
   display: flex;
   justify-content: space-between;
@@ -66,8 +65,7 @@ input[type=text], input[type=password] {
 }
 
 .text-block {
-  opacity: .8;
-  background-color: black;
+  background-color: rgba(0, 0, 0, 0.7);
   color:white;
 }
 
@@ -141,4 +139,26 @@ input[type=text], input[type=password] {
 
 .spoon-logo {
   width: 50px;
+}
+
+.ingredients-columns {
+  column-count: 3;
+  list-style-type: none;
+  text-align: center;
+}
+
+.content {
+  margin: 1%;
+}
+
+.ing-list-btns {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+ margin: 1%;
+}
+
+.ing-list-btns button{
+  background-color:rgba(0, 0, 0, 0.7);
 }
