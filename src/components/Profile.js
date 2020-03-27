@@ -17,8 +17,8 @@ class Profile extends Component {
             <div className="profile"> 
                 <h1 className="profile-header">Welcome {this.props.currentUser.user.first_name}!</h1>
                 <div className="left-column">
-                    <div className="row row-cols-1"> 
-                    <h3 className="text-center"> My Favorites </h3>
+                    <div className="row row-cols-1 text-block"> 
+                    <h1 className="text-center"> My Favorites </h1>
                     {this.props.currentUser.favorites.length > 0 ?
                         this.props.currentUser.favorites.map(recipe => <Favorites recipe={recipe} key={recipe.id} />)
                     : <p> Search for recipes and favorite them to see them here </p>  
@@ -26,7 +26,7 @@ class Profile extends Component {
                     </div>
                 </div> 
                 <div className="right-column">
-                    <h3>Recipe Notes</h3>
+                    {/* <h3>Recipe Notes</h3> */}
                     
                 </div>             
             </div>
