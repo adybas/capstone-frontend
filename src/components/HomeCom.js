@@ -10,7 +10,7 @@ class HomeCom extends Component {
                 <img className="bg-image" src={firsthome}/>
                 <div className="bg-text hover-shadow">
                     <h2>Nourish your <br/>creative side</h2>
-                    <Link to='/home'>
+                    <Link to='/login'>
                     <h1 className="white-font">Discover Recipes</h1></Link>
                 </div>
             </div>
