@@ -10,6 +10,7 @@ import nonVegan from '../assets/images/nonVegan.png'
 import dairyFree from '../assets/images/dairyFree.png'
 import glutenFree from '../assets/images/glutenFree.png'
 // import lowFodmap from '../assets/images/lowFodmap.png'
+import spoonacularLogo from '../assets/images/spoonacular-logo.svg'
 
 
 class RecipeDetail extends React.Component {
@@ -68,33 +69,51 @@ class RecipeDetail extends React.Component {
 
             <div className="dietary-block">
               <div className="row">
-                <div className="col-sm"> {this.props.clickedRecipe[0].vegetarian ? <img className=".img-fluid" src={vegetarian} /> : <img className=".img-fluid" src={nonVegetarian} />} </div>
-                <div className="col-sm"> {this.props.clickedRecipe[0].vegan ? <img className=".img-fluid" src={vegan} /> : <img className=".img-fluid" src={nonVegan} />}</div>
-                <div className="col-sm"> {this.props.clickedRecipe[0].glutenFree ? <img className=".img-fluid" src={glutenFree} /> : null} </div>
-                <div className="col-sm"> {this.props.clickedRecipe[0].dairyFree ? <img className=".img-fluid" src={dairyFree} /> : null} </div>
+                <div className="col-sm"> {this.props.clickedRecipe[0].vegetarian ? <img className="img-fluid" src={vegetarian} /> : <img className="img-fluid" src={nonVegetarian} />} </div>
+                <div className="col-sm"> {this.props.clickedRecipe[0].vegan ? <img className="img-fluid" src={vegan} /> : <img className="img-fluid" src={nonVegan} />}</div>
+                <div className="col-sm"> {this.props.clickedRecipe[0].glutenFree ? <img className="img-fluid" src={glutenFree} /> : null} </div>
+                <div className="col-sm"> {this.props.clickedRecipe[0].dairyFree ? <img className="img-fluid" src={dairyFree} /> : null} </div>
                 {/* <div class="col-sm"> lowFodmap ? {this.props.clickedRecipe[0].lowFodmap ? <img src={lowFodmap} /> : null}} </div> */}
               </div>
             </div>
-<div className="row">
+            
+            <div className="instructions">
+            <div class="row">
+              <div class="col"><hr/></div>
+              <div class="col-auto"><h2> Instructions:</h2> </div>
+              <div class="col"><hr/></div>
+            </div>
+              <p> {this.props.clickedRecipe[0].instructions} </p>
+            </div>
+
+          <div className="row">
             <div class="col-sm-8">
+              <h5 className="total-time">Summary:</h5>
               <div dangerouslySetInnerHTML={{ __html: this.props.clickedRecipe[0].summary }}></div>
             </div>
-            <div class="col-sm-4">
+            <div class="col-sm-4"><p>
               <div className="time-block">
-                <span>Total Time: {this.props.clickedRecipe[0].preparationMinutes + this.props.clickedRecipe[0].cookingMinutes} </span>
-                <span>Preparation Minutes: {this.props.clickedRecipe[0].preparationMinutes} </span>
-                <span>Cooking Minutes: {this.props.clickedRecipe[0].cookingMinutes}</span>
+                <h5 className="total-time">Total Time: {this.props.clickedRecipe[0].preparationMinutes + this.props.clickedRecipe[0].cookingMinutes} </h5>
+                <div>Preparation Minutes: {this.props.clickedRecipe[0].preparationMinutes} </div>
+                <div>Cooking Minutes: {this.props.clickedRecipe[0].cookingMinutes}</div>
               </div>
 
-              <div> weight watchers points ?{this.props.clickedRecipe[0].weightWatcherSmartPoints} </div>
-              
-              <div> servings ? {this.props.clickedRecipe[0].servings} </div>
-              <div> sourceUrl ? {this.props.clickedRecipe[0].sourceUrl} </div>
-              <div> spoonacularSourceUrl ? {this.props.clickedRecipe[0].spoonacularSourceUrl} </div>
-              <div> sourceName ? {this.props.clickedRecipe[0].sourceName} </div>
+              <div>
+                <h6> Servings: {this.props.clickedRecipe[0].servings} </h6>
+              </div>
+
+              <div> 
+                <h6> Weight Watchers Points: {this.props.clickedRecipe[0].weightWatcherSmartPoints} </h6>
+              </div></p>
+
+              <div> <p> 
+                <a href={`${this.props.clickedRecipe[0].sourceUrl}`}> Original Recipe </a>
+                by: {this.props.clickedRecipe[0].sourceName}</p>
+                <img className="img-fluid spoon-logo" src={spoonacularLogo} alt="spoonacular logo"></img><a href={`${this.props.clickedRecipe[0].spoonacularSourceUrl}`}> Spoonacular Recipe </a>
+              </div>
             </div>
             </div>
-            <div> instructions  {this.props.clickedRecipe[0].instructions} </div>
+
           </div>
         ) : (
           <div></div>

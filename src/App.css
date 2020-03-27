@@ -122,7 +122,7 @@ input[type=text], input[type=password] {
 }
 
 .dietary-block {
-  margin:1% 0% 1% 0%;
+  margin:1% 0% 2% 0%;
   display: flex;
   height: 5%;
   justify-content: center;
@@ -130,3 +130,15 @@ input[type=text], input[type=password] {
 
 /* .dietary-block img {
 }  */
+
+.instructions{
+  margin:2% 0% 2% 0%;
+}
+
+.total-time {
+  font-weight: bold;
+}
+
+.spoon-logo {
+  width: 50px;
+}
