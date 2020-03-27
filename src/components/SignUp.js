@@ -1,7 +1,7 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import { signingUp } from '../redux/actions'
-import { Redirect } from 'react-router-dom'
+import { Redirect, Link } from 'react-router-dom'
 import { Button, Form, Card } from 'react-bootstrap'
 
 class SignUp extends React.Component {
@@ -12,7 +12,6 @@ class SignUp extends React.Component {
       username: "",
       password: ""
     },
-    redirected: false
   };
 
   handleChange = event => {
@@ -24,11 +23,10 @@ class SignUp extends React.Component {
   handleSubmit = event => {
     event.preventDefault()
     this.props.onSubmit(this.state.form);
-    this.setState({ redirected: true });
   };
 
   render() {
-    if (this.props.redirected) {
+    if (this.props.redirect) {
       return <Redirect to="/profile" />; // redirect to user profile!!
     }
     return (
@@ -77,9 +75,11 @@ class SignUp extends React.Component {
                 placeholder="Password"
                 onChange={this.handleChange}
               />
-            </Form.Group>
-
-            <Form.Group>
+            {/* </Form.Group>
+            <Form.Group> */}
+            <Form.Text className="text">
+                Already a Member? <Link to="/login">Login here</Link>
+            </Form.Text>
               <Button
                 variant="primary"
                 size="lg"

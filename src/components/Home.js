@@ -10,6 +10,7 @@ import RecipeDetail from './RecipeDetail'
 import Navbar from './Navbar'
 import Footer from './Footer'
 import Profile from './Profile'
+import HomeCom from './HomeCom'
 
 
 const Home = (props) => {
@@ -58,9 +59,18 @@ const Home = (props) => {
                         </div>
                     )}
                 />
+                
+                <Route
+                    exact path="/"
+                    render={() => (
+                        <div className="">
+                            <HomeCom />
+                        </div>
+                    )}
+                />
              
             </Switch> 
-            < Footer />
+            {/* < Footer /> */}
         </div>
     )
 }

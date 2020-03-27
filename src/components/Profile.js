@@ -14,16 +14,21 @@ class Profile extends Component {
             return "Please sign in!"
           }
         return (
-            <div > 
-                <h1>Welcome {this.props.currentUser.user.first_name}!</h1>
-                <div className="container">
-                    <div className="card-deck row row-cols-2">
+            <div className="profile"> 
+                <h1 className="profile-header">Welcome {this.props.currentUser.user.first_name}!</h1>
+                <div className="left-column">
+                    <div className="row row-cols-1 text-block"> 
+                    <h1 className="text-center"> My Favorites </h1>
                     {this.props.currentUser.favorites.length > 0 ?
                         this.props.currentUser.favorites.map(recipe => <Favorites recipe={recipe} key={recipe.id} />)
                     : <p> Search for recipes and favorite them to see them here </p>  
                     } 
                     </div>
-                </div>              
+                </div> 
+                <div className="right-column">
+                    {/* <h3>Recipe Notes</h3> */}
+                    
+                </div>             
             </div>
         )
     }
