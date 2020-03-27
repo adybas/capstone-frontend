@@ -12,7 +12,6 @@ class SignUp extends React.Component {
       username: "",
       password: ""
     },
-    redirected: false
   };
 
   handleChange = event => {
@@ -24,11 +23,10 @@ class SignUp extends React.Component {
   handleSubmit = event => {
     event.preventDefault()
     this.props.onSubmit(this.state.form);
-    this.setState({ redirected: true });
   };
 
   render() {
-    if (this.props.redirected) {
+    if (this.props.redirect) {
       return <Redirect to="/profile" />; // redirect to user profile!!
     }
     return (

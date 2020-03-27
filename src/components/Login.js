@@ -10,8 +10,6 @@ class Login extends Component {
       username: "",
       password: ""
     },
-    redirected: false,
-   // loading: true
   };
 
   handleChange = event => {
@@ -23,7 +21,6 @@ class Login extends Component {
   handleSubmit = event => {
     event.preventDefault();
     this.props.onSubmit(this.state.form);
-    this.setState({ redirected: true });
   };
 
   render() {

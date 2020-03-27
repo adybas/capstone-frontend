@@ -69,10 +69,10 @@ class RecipeDetail extends React.Component {
 
             <div className="dietary-block">
               <div className="row">
-                <div className="col-sm"> {this.props.clickedRecipe[0].vegetarian ? <img className="img-fluid" src={vegetarian} /> : <img className="img-fluid" src={nonVegetarian} />} </div>
-                <div className="col-sm"> {this.props.clickedRecipe[0].vegan ? <img className="img-fluid" src={vegan} /> : <img className="img-fluid" src={nonVegan} />}</div>
-                <div className="col-sm"> {this.props.clickedRecipe[0].glutenFree ? <img className="img-fluid" src={glutenFree} /> : null} </div>
-                <div className="col-sm"> {this.props.clickedRecipe[0].dairyFree ? <img className="img-fluid" src={dairyFree} /> : null} </div>
+                <div className="col-sm"> {this.props.clickedRecipe[0].vegetarian ? <img  src={vegetarian} /> : <img  src={nonVegetarian} />} </div>
+                <div className="col-sm"> {this.props.clickedRecipe[0].vegan ? <img  src={vegan} /> : <img  src={nonVegan} />}</div>
+                <div className="col-sm"> {this.props.clickedRecipe[0].glutenFree ? <img  src={glutenFree} /> : null} </div>
+                <div className="col-sm"> {this.props.clickedRecipe[0].dairyFree ? <img  src={dairyFree} /> : null} </div>
                 {/* <div class="col-sm"> lowFodmap ? {this.props.clickedRecipe[0].lowFodmap ? <img src={lowFodmap} /> : null}} </div> */}
               </div>
             </div>
