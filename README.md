@@ -33,7 +33,7 @@ Available features:
   - Run `$ rails db:migrate`
   - Run `$ rails s`
   
-- After the backend is up, open the capsteon-frontend directory and run these commands:
+- After the backend is up, open the capstone-frontend directory and run these commands:
   - Run `$ npm install`
   - Run `$ npm start`
 
