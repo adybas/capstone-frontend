@@ -1,68 +1,92 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# Recipe Finder
 
-## Available Scripts
+Tired of cooking the same stuff all time? Have a ton of random vegetable cans and no idea what to make with them? On a budget and trying to use the whole pantry for dinner instead of picking up something? Recipe Finder is made with you in mind!
 
-In the project directory, you can run:
+Recipe Finder allows you to use the ingredients you have on hand to search for recipes that use those ingredients. It's a great way to save money, learn some new recipes, and expand your cooking repertoire. 
 
-### `yarn start`
+Recipe Finder is a single page web application built with React, Redux, Javascript on the frontend and Ruby on Rails on the backend. Utilizing the Spoonacular API, it makes fetch calls for recipes which include the ingredients, and then renders selected recipes for the user to favorite and come back to time and again.
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
+Available features:
 
-### `yarn test`
+- **Users can sign up to create a new account, or login to an existing account.**
+- **Users can view their favorited recipes on their profile page once logged in.**
+- **Users can select from 1000 common ingredients to find recipes that use all or some of the selected ingredients.**
+    - **Once an ingredient is selected, the button for that ingredient becomes disabled to prevent users from accidentally double clicking the same ingredient. The ingredient is then listed inside the "Current Selection" box.**
+    - **Should a user not want to search for an ingredient in their "Current Selection" box, they can click on the ingredient in the box which removes it from the box and makes the ingredient button not disabled anymore.**
+- **Recipes fetched from the API are displayed after a user selects to search; users can quickly see which ingredients the recipe uses, and which ingredients are needed for each recipe rendered from the API.**
+- **Users can click on the recipe to view a more detail recipe card, which includes:**
+   - **picture of the recipe**
+   - **button to favorite the recipe and see on user profile**
+   - **dietary information (vegan, vegetarian, gluten free, dairy free)**
+   - **instructions**
+   - **summary provided from API**
+   - **link to original recipe**
+   - **link to recipe on API**
 
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Installation
 
-### `yarn build`
+- Fork and clone this repo and [the backend repo](https://github.com/adybas/capstone-backend)
 
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
+- First, make sure that Postgres is running on your computer. Then cd into the capstone-backend directory and run these commands:
+  - Run `$ rails db:create`
+  - Run `$ rails db:migrate`
+  - Run `$ rails s`
+  
+- After the backend is up, open the capsteon-frontend directory and run these commands:
+  - Run `$ npm install`
+  - Run `$ npm start`
 
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
+## Screenshots of Website
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+#### Home
+![Home Screen](./src/assets/screenshots/home.png) 
 
-### `yarn eject`
+#### Sign In
+![Sign In](./src/assets/screenshots/signin.png)
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+#### Sign Up
+![Sign Up](./src/assets/screenshots/signup.png) 
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+#### User Profile with Favorited Recipes
+![User Profile](./src/assets/screenshots/profile.png) 
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+#### Ingredient Selection
+![Ingredient Selection](./src/assets/screenshots/search1.png) 
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+#### Using Ingredient Searchbar
+![Ingredient Search](./src/assets/screenshots/search2.png) 
 
-## Learn More
+#### Ingredient Button Disabled after Selection
+![Ingredient Button Disabled after Selection](./src/assets/screenshots/search3.png) 
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+#### Recipes from Selected Ingredients
+![Ingredient Recipes](./src/assets/screenshots/recipes.png) 
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+#### Recipe Detail Page - Picture and Favorite Button
+![Recipe Detail Page - Picture and Favorite Button](./src/assets/screenshots/recipe1.png) 
 
-### Code Splitting
+#### Recipe Detail Page - Dietary Info, Instructions and More Info
+![Recipe Detail Page - Dietary Info, Instructions and More Info](./src/assets/screenshots/recipe2.png) 
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
+#### Favorite Recipe Button Change
+![Favorite Recipe Button Change](./src/assets/screenshots/recipe3.png) 
 
-### Analyzing the Bundle Size
+## Frameworks and Libraries Used
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
+- Front-end: JavaScript, [React](https://reactjs.org/), and [Redux](https://redux.js.org/)
+- Back-end: [Ruby on Rails](https://github.com/rails/rails)
+- UI: [Bootstrap](https://getbootstrap.com/), [React Bootstrap](https://react-bootstrap.github.io/), and custom CSS
+    - Dietary Icons on Recipe Detail Page are custom made from [freelogodesign.org](https://www.freelogodesign.org)
 
-### Making a Progressive Web App
+## Author
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
+- Anna Dybas (https://github.com/adybas)
 
-### Advanced Configuration
+## Contributing
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
+Bug reports and pull requests are welcome on GitHub at https://github.com/adybas/capstone-frontend/issues. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [Contributor Covenant](http://contributor-covenant.org) code of conduct.
 
-### Deployment
+## License
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
 
-### `yarn build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
