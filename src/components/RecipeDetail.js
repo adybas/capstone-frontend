@@ -89,6 +89,11 @@ class RecipeDetail extends React.Component {
           <div className="row">
             <div class="col-sm-8">
               <h5 className="total-time">Summary:</h5>
+
+              {/*used dangerouslySetInnerHTML to display inner HTML from the API 
+                could not use <Fragment> from React as best practice bc the data is not from my backend, but an outside API
+                Using html-react-parser would also result in this function being as hacky as using dangerouslySetInnerHTML, so I left is 
+                as is for now until I can figure out a better solution -- XSS vulnerabilities!-- */}
               <div dangerouslySetInnerHTML={{ __html: this.props.clickedRecipe[0].summary }}></div>
             </div>
             <div class="col-sm-4"><p>
