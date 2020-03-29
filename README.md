@@ -4,7 +4,7 @@ Tired of cooking the same stuff all time? Have a ton of random vegetable cans an
 
 Recipe Finder allows you to use the ingredients you have on hand to search for recipes that use those ingredients. It's a great way to save money, learn some new recipes, and expand your cooking repertoire. 
 
-Recipe Finder is a single page web application built with React, Redux, Javascript on the frontend and Ruby on Rails on the backend. Utilizing the Spoonacular API, it makes fetch calls for recipes which include the ingredients, and then renders selected recipes for the user to favorite and come back to time and again.
+Recipe Finder is a single page web application built with React, Redux, and Javascript on the frontend and Ruby on Rails on the backend. Utilizing the Spoonacular API, it makes fetch calls for recipes which include the ingredients, and then renders selected recipes for the user to favorite and come back to time and again.
 
 
 Available features:
