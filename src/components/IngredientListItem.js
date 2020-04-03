@@ -2,7 +2,7 @@ import React from "react";
 import {connect} from 'react-redux'
 import {userSelectedIngredients} from '../redux/actions'
 
-// MAKE FUNCTIONAL 
+// KEEP CLASS! GETS INGREDIENT PASSED DOWN 
 
 class IngredientListItem extends React.Component {
     

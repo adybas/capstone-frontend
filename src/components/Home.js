@@ -13,7 +13,7 @@ import Profile from './Profile'
 import HomeCom from './HomeCom'
 
 
-const Home = (props) => {
+const Home = () => {
     return (
         <div className="home">
             < Navbar />

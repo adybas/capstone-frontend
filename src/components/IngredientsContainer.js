@@ -5,20 +5,18 @@ import {connect} from 'react-redux'
 import { Redirect } from 'react-router-dom'
 
 
-class IngredientsContainer extends Component {
+const IngredientsContainer = (props) => {
 
-    render() {
-        return (
-            <div>
-                {this.props.redirect? 
-                < Redirect to="/recipes"/> // change redirect to recipes
-                :<div className="">
-                    <Searchbar />
-                    <IngredientList />
-                </div> }
-            </div>
-        )
-    }
+    return (
+        <div>
+            {props.redirect? 
+            < Redirect to="/recipes"/> // change redirect to recipes
+            :<div className="">
+                <Searchbar />
+                <IngredientList />
+            </div> }
+        </div>
+    )
 }
 
 const mapStateToProps = (state) => {
