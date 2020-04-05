@@ -96,6 +96,7 @@ function currentUserReducer(state = initialState.currentUser, action){
   }
 }
 
+
 const fetchedUserClickedRecipe = (state = initialState.clickedRecipe, action) => {
   switch (action.type) {
     case "FETCHED_USER_CLICKED_RECIPE":

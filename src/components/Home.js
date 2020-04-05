@@ -1,85 +1,49 @@
 import React from 'react'
-import { Route, Switch } from "react-router-dom";
+import {fetchingRandomRecipe} from '../redux/actions'
+import { Redirect } from 'react-router-dom'
 import { connect } from 'react-redux'
+// Home page => should show Two boxes, one to generate random recipe (get insprired!),
+// second box should show options to login, with text == find recipes and favorite them to save to your profile
 
-import Login from './Login'
-import SignUp from './SignUp'
-import IngredientsContainer from './IngredientsContainer'
-import RecipesContainer from './RecipesContainer'
-import RecipeDetail from './RecipeDetail'
-import Navbar from './Navbar'
-import Footer from './Footer'
-import Profile from './Profile'
-import HomeCom from './HomeCom'
+const Home = props => {
 
+    const handleClick = () => {
+        props.randomRecipe()
+    }
 
-const Home = (props) => {
+    if (props.redirect) {
+        debugger
+        // return <Redirect to={`/recipes/${id}`} />
+    }
+
     return (
-        <div className="home">
-            < Navbar />
+        <div className="">
+            <div>
+                {/* check to see if loged in? if not, show login text and random stuff */}
+            </div>
 
-            <Switch>
-                <Route
-                    exact path="/signup"
-                    component={SignUp}
-                />
-                <Route
-                     path="/login"
-                    component={Login}
-                />
-                <Route
-                    exact path="/ingredients"
-                    render={() => (
-                        <div className="">
-                            <IngredientsContainer />
-                        </div>
-                    )}
-                />
-                <Route
-                    exact path="/recipes/:id"
-                    render={(props) => (
-                        <div className="">
-                            <RecipeDetail routeProps={props}/>
-                        </div>
-                    )}
-                />
-                <Route
-                    exact path="/recipes"
-                    render={() => (
-                        <div className="">
-                            <RecipesContainer />
-                        </div>
-                    )}
-                />
-                  <Route
-                    exact path="/profile"
-                    render={() => (
-                        <div className="">
-                            <Profile />
-                        </div>
-                    )}
-                />
-                
-                <Route
-                    exact path="/"
-                    render={() => (
-                        <div className="">
-                            <HomeCom />
-                        </div>
-                    )}
-                />
-             
-            </Switch> 
-            {/* < Footer /> */}
+            <div>
+                <button onClick={handleClick}>Find Random Recipes</button>
+                {/* Redirect to recipes/:id 
+                    Show button or something that will render a random user recipe!
+                */}
+            </div>
         </div>
     )
+} 
+
+const mapStateToProps = state => {
+    return {
+        redirect: state.redirect
+    }
 }
 
-const mapStateToProps = (state) => {
+const mapDispatchToProps = dispatch => {
     return {
-        currentUser: state.currentUser
+        randomRecipe: () => {dispatch(fetchingRandomRecipe())}
     }
 }
 
 
-export default connect(mapStateToProps)(Home)
+export default connect(mapStateToProps, mapDispatchToProps)(Home)
+

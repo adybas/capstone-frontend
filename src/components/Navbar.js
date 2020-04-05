@@ -3,7 +3,7 @@ import { Route, NavLink, withRouter } from 'react-router-dom'
 import { AiOutlineSearch, AiOutlineLogin, AiOutlineHome, AiOutlineUser } from 'react-icons/ai';
 
 
-const Navigation = (props) => {
+const Navigation = () => {
     return (
         <div className="nav mb-4">
             <Route>

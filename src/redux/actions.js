@@ -160,10 +160,19 @@ function unfavoritingUserRecipe(recipe, user){
       return { type: "UNFAVORITE_A_RECIPE", payload: recipe_id }
 }
 
-function unfavoriteUserRecipe(recipe) {
-  return { type: "UNFAVORITE_A_RECIPE", payload: recipe };
-}
 
+//add params that API accepts like: diets, meal types, cuisines, or intolerances
+function fetchingRandomRecipe() {
+  return dispatch => {
+    fetch(
+      `https://api.spoonacular.com/recipes/random?number=1&apiKey=${process.env.REACT_APP_APIKEY}`
+    )
+      .then(res => res.json())
+      .then(recipe => {
+        dispatch(fetchedUserClickedRecipe(recipe));
+      })
+  }
+}
 
 
 export {
@@ -178,7 +187,8 @@ export {
   resetRedirect,
   fetchingUserClickedRecipe,
   favoritingRecipe,
-  unfavoritingUserRecipe
+  unfavoritingUserRecipe,
+  fetchingRandomRecipe
 }
 
 //make a POST for favs
