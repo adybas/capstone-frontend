@@ -165,7 +165,7 @@ function unfavoritingUserRecipe(recipe, user){
 function fetchingRandomRecipe() {
   return dispatch => {
     fetch(
-      `hhttps://api.spoonacular.com/recipes/random?number=2&apiKey=${process.env.REACT_APP_APIKEY}`
+      `https://api.spoonacular.com/recipes/random?number=1&apiKey=${process.env.REACT_APP_APIKEY}`
     )
       .then(res => res.json())
       .then(recipe => {

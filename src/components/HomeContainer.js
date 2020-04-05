@@ -11,6 +11,7 @@ import Navbar from './Navbar'
 import Footer from './Footer'
 import Profile from './Profile'
 import MainPage from './MainPage'
+import Home from './Home'
 
 
 const HomeContainer = () => {

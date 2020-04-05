@@ -1,11 +1,21 @@
 import React from 'react'
-import fetchingRandomRecipe from '../redux/actions'
+import {fetchingRandomRecipe} from '../redux/actions'
 import { Redirect } from 'react-router-dom'
 import { connect } from 'react-redux'
 // Home page => should show Two boxes, one to generate random recipe (get insprired!),
 // second box should show options to login, with text == find recipes and favorite them to save to your profile
 
 const Home = props => {
+
+    const handleClick = () => {
+        props.randomRecipe()
+    }
+
+    if (this.props.redirect) {
+        debugger
+        // return <Redirect to={`/recipes/${id}`} />
+    }
+
     return (
         <div className="">
             <div>
@@ -13,6 +23,7 @@ const Home = props => {
             </div>
 
             <div>
+                <button onClick={handleClick}>Find Random Recipes</button>
                 {/* Redirect to recipes/:id 
                     Show button or something that will render a random user recipe!
                 */}
@@ -21,6 +32,12 @@ const Home = props => {
     )
 } 
 
+const mapStateToProps = state => {
+    return {
+        redirect: state.redirect
+    }
+}
+
 const mapDispatchToProps = dispatch => {
     return {
         randomRecipe: () => {dispatch(fetchingRandomRecipe())}
@@ -28,5 +45,5 @@ const mapDispatchToProps = dispatch => {
 }
 
 
-export default connect(null, mapDispatchToAction)(Home)
+export default connect(mapStateToProps, mapDispatchToProps)(Home)
 
