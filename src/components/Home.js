@@ -11,7 +11,7 @@ const Home = props => {
         props.randomRecipe()
     }
 
-    if (this.props.redirect) {
+    if (props.redirect) {
         debugger
         // return <Redirect to={`/recipes/${id}`} />
     }
