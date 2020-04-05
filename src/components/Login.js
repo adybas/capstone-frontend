@@ -25,7 +25,7 @@ class Login extends Component {
 
   render() {
     if (this.props.redirect) {
-      return <Redirect to="/profile" />; // redirect to user profile!!
+      return <Redirect to="/profile" />
     }
     return (
       <div className="form-group">

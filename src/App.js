@@ -3,7 +3,7 @@ import { Route } from "react-router-dom";
 import './App.css'
 
 
-import Home from './components/Home'
+import Home from './components/HomeContainer'
 import { connect } from 'react-redux'
 import { fetchingIngredients } from './redux/actions'
 
