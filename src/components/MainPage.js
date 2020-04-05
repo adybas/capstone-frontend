@@ -2,7 +2,7 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 import firsthome from '../assets/images/firsthome.jpg'
 
-const HomeCom = () => {
+const MainPage = () => {
     return (
         <div className="landing-page">
             <div className="bg-image"></div>
@@ -16,4 +16,4 @@ const HomeCom = () => {
     )
 }
 
-export default HomeCom
+export default MainPage

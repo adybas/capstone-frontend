@@ -13,7 +13,7 @@ import Profile from './Profile'
 import MainPage from './MainPage'
 
 
-const Home = () => {
+const HomeContainer = () => {
     return (
         <div className="home">
             < Navbar />
@@ -91,4 +91,4 @@ const mapStateToProps = (state) => {
 }
 
 
-export default connect(mapStateToProps)(Home)
+export default connect(mapStateToProps)(HomeContainer)
