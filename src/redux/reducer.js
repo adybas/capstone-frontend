@@ -69,6 +69,8 @@ const redirectReducer = (state = initialState.redirect, action) => {
   switch (action.type) {
     case "FETCHED_SELECTED_RECIPES":  
       return true
+    case "FETCHED_USER_CLICKED_RECIPE":
+      return true
     case "LOGIN":
       return true
     case "RESET_REDIRECT":

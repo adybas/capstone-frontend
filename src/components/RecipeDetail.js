@@ -73,21 +73,21 @@ class RecipeDetail extends React.Component {
                 <div className="col-sm"> {this.props.clickedRecipe[0].vegan ? <img  src={vegan} /> : <img  src={nonVegan} />}</div>
                 <div className="col-sm"> {this.props.clickedRecipe[0].glutenFree ? <img  src={glutenFree} /> : null} </div>
                 <div className="col-sm"> {this.props.clickedRecipe[0].dairyFree ? <img  src={dairyFree} /> : null} </div>
-                {/* <div class="col-sm"> lowFodmap ? {this.props.clickedRecipe[0].lowFodmap ? <img src={lowFodmap} /> : null}} </div> */}
+                {/* <div className="col-sm"> lowFodmap ? {this.props.clickedRecipe[0].lowFodmap ? <img src={lowFodmap} /> : null}} </div> */}
               </div>
             </div>
             
             <div className="instructions">
-            <div class="row">
-              <div class="col"><hr/></div>
-              <div class="col-auto"><h2> Instructions:</h2> </div>
-              <div class="col"><hr/></div>
+            <div className="row">
+              <div className="col"><hr/></div>
+              <div className="col-auto"><h2> Instructions:</h2> </div>
+              <div className="col"><hr/></div>
             </div>
               <p> {this.props.clickedRecipe[0].instructions} </p>
             </div>
 
           <div className="row">
-            <div class="col-sm-8">
+            <div className="col-sm-8">
               <h5 className="total-time">Summary:</h5>
 
               {/*used dangerouslySetInnerHTML to display inner HTML from the API 
@@ -96,7 +96,7 @@ class RecipeDetail extends React.Component {
                 as is for now until I can figure out a better solution -- XSS vulnerabilities!-- */}
               <div dangerouslySetInnerHTML={{ __html: this.props.clickedRecipe[0].summary }}></div>
             </div>
-            <div class="col-sm-4"><p>
+            <div className="col-sm-4"><p>
               <div className="time-block">
                 <h5 className="total-time">Total Time: {this.props.clickedRecipe[0].preparationMinutes + this.props.clickedRecipe[0].cookingMinutes} </h5>
                 <div>Preparation Minutes: {this.props.clickedRecipe[0].preparationMinutes} </div>
