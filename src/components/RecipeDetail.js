@@ -1,6 +1,6 @@
 import React from "react";
 import { connect } from "react-redux";
-import { fetchingUserClickedRecipe, favoritingRecipe, unfavoritingUserRecipe } from "../redux/actions";
+import { fetchingUserClickedRecipe, favoritingRecipe, unfavoritingUserRecipe, resetRedirect } from "../redux/actions";
 import { OverlayTrigger, Button, Tooltip } from "react-bootstrap";
 import { AiOutlineHeart, AiFillHeart } from 'react-icons/ai'
 import vegetarian from '../assets/images/vegetarian.png'
@@ -17,6 +17,7 @@ class RecipeDetail extends React.Component {
   componentDidMount() {
     let id = this.props.routeProps.match.params.id;
     this.props.recipe(id);
+    this.props.resetRedirect()
   }
 
   handleLike = (event) => {
@@ -145,6 +146,9 @@ const mapDispatchToProps = dispatch => {
     }, 
     unfavoriteRecipe: (recipe, user) => {
       dispatch(unfavoritingUserRecipe(recipe, user))
+    },
+    resetRedirect: () => {
+      dispatch(resetRedirect())
     }
   };
 };
