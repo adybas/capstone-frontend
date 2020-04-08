@@ -89,4 +89,4 @@ Bug reports and pull requests are welcome on GitHub at https://github.com/adybas
 
 ## License
 
-
+This project is licensed under the terms of the [MIT](https://github.com/angular/angular.js/blob/master/LICENSE) license.
