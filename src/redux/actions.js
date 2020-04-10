@@ -39,6 +39,10 @@ function loggingIn({ username, password }) {
   };
 }
 
+function loggingOut(){
+  return { type: "LOGOUT"}
+}
+
 function errorHandling(error) {
   return { type: "ERROR", payload: error}
 }
@@ -188,7 +192,8 @@ export {
   fetchingUserClickedRecipe,
   favoritingRecipe,
   unfavoritingUserRecipe,
-  fetchingRandomRecipe
+  fetchingRandomRecipe,
+  loggingOut
 }
 
 //make a POST for favs

@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import React from 'react'
 import IngredientList from './IngredientList'
 import Searchbar from './Searchbar'
 import {connect} from 'react-redux'
