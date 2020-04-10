@@ -11,30 +11,26 @@ const Home = props => {
         props.randomRecipe()
     }
 
-    if (props.redirect) {
-        debugger
-        // return <Redirect to={`/recipes/${id}`} />
-    }
-
     return (
         <div className="">
-            <div>
+            {props.redirect? ( 
+
+            < Redirect to={`/recipes/${props.recipe[0].id}`}/>)
+            :<><div>
                 {/* check to see if loged in? if not, show login text and random stuff */}
             </div>
 
             <div>
                 <button onClick={handleClick}>Find Random Recipes</button>
-                {/* Redirect to recipes/:id 
-                    Show button or something that will render a random user recipe!
-                */}
-            </div>
+            </div></>}
         </div>
     )
 } 
 
 const mapStateToProps = state => {
     return {
-        redirect: state.redirect
+        redirect: state.redirect,
+        recipe: state.clickedRecipe
     }
 }
 

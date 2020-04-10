@@ -169,7 +169,7 @@ function fetchingRandomRecipe() {
     )
       .then(res => res.json())
       .then(recipe => {
-        dispatch(fetchedUserClickedRecipe(recipe));
+        dispatch(fetchedUserClickedRecipe(recipe["recipes"][0]));
       })
   }
 }
