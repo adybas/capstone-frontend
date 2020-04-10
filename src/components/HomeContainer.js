@@ -3,6 +3,7 @@ import { Route, Switch } from "react-router-dom";
 import { connect } from 'react-redux'
 
 import Login from './Login'
+import Logout from './Logout'
 import SignUp from './SignUp'
 import IngredientsContainer from './IngredientsContainer'
 import RecipesContainer from './RecipesContainer'
@@ -25,8 +26,12 @@ const HomeContainer = () => {
                     component={SignUp}
                 />
                 <Route
-                     path="/login"
+                    path="/login"
                     component={Login}
+                />
+                <Route
+                    path="/logout"
+                    component={Logout}
                 />
                 <Route
                     exact path="/ingredients"

@@ -1,16 +1,19 @@
 import React from 'react'
+import {connect} from 'react-redux'
 import {loggingOut} from '../redux/actions'
 
 const Logout = () => {
-    return{
-
-    }
+    return(
+        <div>
+            I'm a logout page!
+        </div>
+    )
 }
 
 const mapDispatchToProps = dispatch => {
     return {
       logout: () => {
-        dispatch(logginOut())
+        dispatch(loggingOut())
       }
     };
   };
