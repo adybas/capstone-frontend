@@ -11,7 +11,7 @@ const IngredientsContainer = (props) => {
         <div>
             {props.redirect? 
             < Redirect to="/recipes"/> // change redirect to recipes
-            :<div className="">
+            :<div className="ingredients-container">
                 <Searchbar />
                 <IngredientList />
             </div> }
