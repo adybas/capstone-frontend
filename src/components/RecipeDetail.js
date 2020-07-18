@@ -32,6 +32,15 @@ class RecipeDetail extends React.Component {
     }
   }
 
+  removeTags(string) {
+    if (string === null || string === " ") {
+        return false;
+    } else {
+        string = string.toString();
+        return string.replace(/(<([^>]+)>)/ig, '');
+    }
+  }
+
   renderTooltip(props) {
     return <Tooltip {...props}>Add to Favorites</Tooltip>;
   }
@@ -95,7 +104,8 @@ class RecipeDetail extends React.Component {
                 could not use <Fragment> from React as best practice bc the data is not from my backend, but an outside API
                 Using html-react-parser would also result in this function being as hacky as using dangerouslySetInnerHTML, so I left is 
                 as is for now until I can figure out a better solution -- XSS vulnerabilities!-- */}
-              <div dangerouslySetInnerHTML={{ __html: this.props.clickedRecipe[0].summary }}></div>
+              {/* <div dangerouslySetInnerHTML={{ __html: this.props.clickedRecipe[0].summary }}></div> */}
+              <div> {this.removeTags(this.props.clickedRecipe[0].summary)}</div>
             </div>
             <div className="col-sm-4"><p>
               <div className="time-block">
