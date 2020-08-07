@@ -36,6 +36,10 @@ Available features:
 - After the backend is up, open the capstone-frontend directory and run these commands:
   - Run `$ npm install`
   - Run `$ npm start`
+  
+#### API Key
+To be able to utlize this SPA, you will need to sign up for an account on [Spoonacular API](https://spoonacular.com/food-api). The API has a free tier, along with paid subscriptions. As long as you use less than 150 points/per day, you will be able to fetch and view recipes based on the ingredients selected. If you go over that limit, the API will not allow any more fetch calls for that day (unless you upgrade to a paid package). Once you have your API key, follow along this [stackoverflow](https://stackoverflow.com/questions/48699820/how-do-i-hide-api-key-in-create-react-app) question to add the API key to a .env file (as this constant `REACT_APP_APIKEY = spoonacular key`) and .gitnore file.
+
 
 ## Screenshots of Website
 
