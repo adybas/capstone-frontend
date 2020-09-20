@@ -31,6 +31,7 @@ Available features:
 - First, make sure that Postgres is running on your computer. Then cd into the capstone-backend directory and run these commands:
   - Run `$ rails db:create`
   - Run `$ rails db:migrate`
+  - Run `$ rails db:seed`
   - Run `$ rails s`
   
 - After the backend is up, open the capstone-frontend directory and run these commands:
